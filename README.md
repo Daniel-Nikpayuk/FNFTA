@@ -105,13 +105,24 @@ of a learning curve, but people get better, and its needed. Am I wrong? is it a 
 
 The greatest limitation in the analysis is the *translation phase*, which does effect the results of the final statistical
 analysis. The end effect is the median and mean results are skewed to be a bit higher than they probably in fact are.
+Much of this has to do with the fact that I chose to not delve into the audited consolidated reports. I stuck to the
+schedules of remuneration and expenses, and because of that there were some financial categories I likely misclassified.
+
+As well, as you will see, I took the role of "engineer" for this project, adhering to a modular design while strongly
+relying on automation. In itself I view this as a strength, but as this was a first time effort, I have not yet gone
+back and optimized the workflow---there's still are reasonable amount of messy prototyping. As such, I don't guarantee
+there are no bugs in the code. The limit in particular is that it has been up until now the eyes of a single individual
+(me) in finding the bugs and whatnot within this project.
 
 ## Final note:
 
 All of the content here is under copyright 2015 of Daniel Nikpayuk. If you are using it for academic and non-profit purposes,
 I give permission to use the full of it for society's benefit. Those who wish to use it for-profit (frankly I don't know
 why you would, but if you exist) you do not have permission to use this at all (beyond anything permitted in fair use).
-If you're indigenous and you find this useful, I am grateful. I do this for you.
+
+If you're indigenous and you find this useful, I am grateful. I do this for you. This is the best-case-scenario anyway.
+For me, the worst-case-scenario is this project is used as a case study analyzing what was done well and what has room for
+improvement---but that's just fine as it still serves a purpose. At the very least I learned much myself in the process.
 
 Thank you.
 

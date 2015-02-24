@@ -1,0 +1,40 @@
+#!/bin/bash
+
+LOCALPART1="Band "
+LOCALPART2=" - "
+LOCALPARTS="Remuneration and Expenses"
+
+INCOMPLETE="incomplete.txt"
+COMPLETE="complete.txt"
+
+TIFFNAME="tmp.tiff"
+
+end=800
+if [ ! -f "$INCOMPLETE" ]; then for ((k=1; k < $end; ++k)); do echo $k >> "$INCOMPLETE"; done; fi
+mv "$INCOMPLETE" "$INCOMPLETE.tmp"
+
+if [ ! -f "$COMPLETE" ]; then touch "$COMPLETE"; fi
+mv "$COMPLETE" "$COMPLETE.tmp"
+
+digitize-and-update()
+{
+	local name="$LOCALPART1""$1""$LOCALPART2""$LOCALPARTS"
+	if [ -f "$name"".pdf" ]
+	then
+		convert -density 300 "$name"".pdf" -depth 8 "$TIFFNAME"
+		tesseract "$TIFFNAME" "txt/$name"
+		echo $1 >> "$COMPLETE.tmp"
+	else echo $1 >> "$INCOMPLETE"
+	fi
+}
+
+if [ ! -d "txt" ]; then mkdir "txt"; fi
+
+cat "$INCOMPLETE.tmp" |
+while read k
+	do digitize-and-update $k
+done
+
+sort "$COMPLETE.tmp" > "$COMPLETE" &&
+rm "$INCOMPLETE.tmp" "$COMPLETE.tmp" "$TIFFNAME"
+

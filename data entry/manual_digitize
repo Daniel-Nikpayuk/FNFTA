@@ -1,0 +1,24 @@
+#!/bin/bash
+
+#Does not update "complete" and "incomplete"
+
+LOCALPART1="Band "
+LOCALPART2=" - "
+LOCALPARTS="Remuneration and Expenses"
+
+TIFFNAME="tmp.tiff"
+
+NUM=$1
+PGNUM=$2
+PGNAME=$(if [ $2 -gt 9 ]; then echo "pg_00"; else echo "pg_000"; fi)
+DEG=$(if test "$3" = "l"; then echo -90; elif test "$3" = "r"; then echo 90; elif test "$3" = "f"; then echo 180; else echo 0; fi)
+name="$LOCALPART1""$NUM""$LOCALPART2""$LOCALPARTS"
+
+pdftk "$name"".pdf" burst
+if [ $DEG -eq 0 ]
+	then convert -density 300 "$PGNAME""$PGNUM"".pdf" -depth 8 "$TIFFNAME"
+	else convert -density 300 "$PGNAME""$PGNUM"".pdf" -depth 8 -rotate $DEG "$TIFFNAME"
+fi
+tesseract "$TIFFNAME" "txt/$name"
+rm doc_data.txt "$PGNAME"*.pdf "$TIFFNAME"
+

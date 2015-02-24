@@ -1,0 +1,18 @@
+#!/bin/bash
+
+#Does not update "complete" and "incomplete"
+
+LOCALPART1="Band "
+LOCALPART2=" - "
+LOCALPARTS="Remuneration and Expenses"
+
+TIFFNAME="tmp.tiff"
+
+NUM=$1
+name="$LOCALPART1""$NUM""$LOCALPART2""$LOCALPARTS"
+
+convert -density 300 "$name"".pdf" "image/$name"".pdf"
+convert -density 300 "image/$name"".pdf" -depth 8 "$TIFFNAME"
+tesseract "$TIFFNAME" "txt/$name"
+rm "image/$name"".pdf" "$TIFFNAME"
+

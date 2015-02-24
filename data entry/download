@@ -1,0 +1,44 @@
+#!/bin/bash
+
+PART1="http://pse5-esd5.ainc-inac.gc.ca/fnp/Main/Search/"
+PART2="DisplayBinaryData.aspx?BAND_NUMBER_FF="
+PART3="&FY=2013-2014&DOC="
+PARTS="Schedule%20of%20Remuneration%20and%20Expenses"
+PART4="&lang=eng"
+
+LOCALPART1="Band "
+LOCALPART2=" - "
+LOCALPARTS="Remuneration and Expenses"
+
+INCOMPLETE="incomplete.txt"
+COMPLETE="complete.txt"
+
+end=800
+if [ ! -f "$INCOMPLETE" ]; then for ((k=1; k <= $end; ++k)); do echo $k >> "$INCOMPLETE"; done; fi
+mv "$INCOMPLETE" "$INCOMPLETE.tmp"
+
+if [ ! -f "$COMPLETE" ]; then touch "$COMPLETE"; fi
+mv "$COMPLETE" "$COMPLETE.tmp"
+
+download-and-update()
+{
+	local name="$PART2""$1""$PART3""$PARTS""$PART4"
+	wget "$PART1$name"
+#If the link is empty but still exists, it will download into a file of size 1988 or 2084 bytes:
+	if [ ! -f "$name" ]; then echo $1 >> "$INCOMPLETE"
+	elif [ $(ls -l "$name" | mawk '{print $5}') -eq 1988 ]; then rm "$name"; echo $1 >> "$INCOMPLETE"
+	elif [ $(ls -l "$name" | mawk '{print $5}') -eq 2084 ]; then rm "$name"; echo $1 >> "$INCOMPLETE"
+	else mv "$name" "pdf/""$LOCALPART1""$1""$LOCALPART2""$LOCALPARTS"".pdf"; echo $1 >> "$COMPLETE.tmp"
+	fi
+}
+
+if [ ! -d "pdf" ]; then mkdir "pdf"; fi
+
+cat "$INCOMPLETE.tmp" |
+while read k
+	do download-and-update $k
+done
+
+sort "$COMPLETE.tmp" > "$COMPLETE" &&
+rm "$INCOMPLETE.tmp" "$COMPLETE.tmp"
+
