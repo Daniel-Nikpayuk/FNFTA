@@ -17,7 +17,9 @@ This independent analysis of the FNFTA is broken into three parts:
 
 1) It takes the schedule of remuneration and expenses reports posted online and unifies them into several relevant
 comma seperated value (csv) open dataset files.
+
 2) It performs a semiotic analysis on the wordspace given by the filtered csv files.
+
 3) It performs a statistical analysis on the financial and other relevant data oriented around median and mean
 earnings of Chief and Council amongst the given Nations.
 
@@ -26,7 +28,9 @@ earnings of Chief and Council amongst the given Nations.
 The workload was modularized into the following parts:
 
 1) Data entry phase.
+
 2) Translation phase.
+
 3) Data analysis phase.
 
 The source code/documentation is organized along this division as well. Within each of the appropriately named folders
