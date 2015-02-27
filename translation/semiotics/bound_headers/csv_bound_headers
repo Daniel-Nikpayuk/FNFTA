@@ -1,0 +1,56 @@
+#!/bin/bash
+
+INPUT="$1"
+MIDPUT="partial_sort.log"
+TMP="tmp.log"
+TITLE="bound_headers"
+OUTPUT="$TITLE.csv"
+
+################################################################
+
+mawk_prog_prepare='BEGIN {isHeaderLine=0;}
+{
+	if (match($0, "^[0-9]+,"))
+	{
+		isHeaderLine=1;
+	}
+	else if (isHeaderLine)
+	{
+		gsub(",\t+", " ");
+		print $0;
+		isHeaderLine=0;
+	}
+}'
+
+if [ -f "$MIDPUT" ]; then rm "$MIDPUT"; fi
+
+mawk "$mawk_prog_prepare" "$INPUT" |
+while read line
+do
+	echo "$line" |
+	mawk '{ gsub(" ", "\n"); print $0; }' |
+	sort |
+	mawk 'BEGIN { acc=""; } { acc=acc"__"$0; } END { print substr(acc, 3, length(acc)); }' >> "$MIDPUT"
+done
+
+sort "$MIDPUT" > "$TMP"
+rm "$MIDPUT"
+
+mawk_prog_count='BEGIN { header=""; count=0; }
+{
+	if ($0 == header) ++count;
+	else
+	{
+		if (count != 0) print header",\t"count;
+		header=$0;
+		count=1;
+	}
+}'
+
+mawk "$mawk_prog_count" "$TMP" > "$OUTPUT" &&
+rm "$TMP"
+
+R --no-save < "source.r"
+convert -density 300 "$TITLE.pdf" "$TITLE.jpg"
+rm "$OUTPUT" "$TITLE.pdf"
+

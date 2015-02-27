@@ -1,0 +1,46 @@
+#!/bin/bash
+
+INPUT="$1"
+OUTPUT="${INPUT##*/}-first_line.log"
+
+mawk_prog='BEGIN { allFirstsValid=0; hasInvalidFirst=0; firstLine=0; line=1; }
+{
+	if (NF == 0) firstLine=1;
+	else if (firstLine)
+	{
+		if(count($0, ",") < 2)
+		{
+			hasInvalidFirst=1;
+			print line;
+		}
+		firstLine=0;
+	}
+
+	++line;
+}
+
+function count(s, e,  c)
+{
+	c=0;
+	while (s != "")
+	{
+		if (match(s, e))
+		{
+			s=substr(s, RSTART+RLENGTH);
+			++c;
+		}
+		else s="";
+	}
+
+	return c;
+}
+
+END {
+	if (!hasInvalidFirst) allFirstsValid=1;
+
+	if (allFirstsValid) print "This csv file has been validated.";
+	else print "This csv file is invalid: The lines preceding this statement are invalid.";
+}'
+
+mawk "$mawk_prog" "$INPUT" | tee "$OUTPUT"
+

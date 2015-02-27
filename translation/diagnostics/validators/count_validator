@@ -1,0 +1,7 @@
+#!/bin/bash
+
+INPUT="$1"
+OUTPUT="${INPUT##*/}-count_validator.log"
+
+mawk '{ if (match($0, "^[0-9]+,")) print substr($0, RSTART, RLENGTH-1); }' "$INPUT" | sort -u | wc -l | tee "$OUTPUT"
+

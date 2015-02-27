@@ -1,0 +1,36 @@
+#!/bin/bash
+
+INPUT="$1"
+OUTPUT="${INPUT##*/}-space.log"
+
+#Assume an invalid hypothesis; burden of proof should be on the validity of what's being tested.
+
+mawk_prog='BEGIN { noInvalidLine=0; noNoneFirst=1; lineCount=0; line=1; }
+{
+	if (lineCount > 0)
+	{
+		if (NF == 0) lineCount=2;
+		else if (lineCount < 2)
+		{
+			lineCount=0;
+			if (!match($0, "^[0-9]+,"))
+			{
+				noNoneFirst=0;
+				print line;
+			}
+		}
+	}
+	else if (NF == 0) lineCount=1;
+
+	++line;
+}
+
+END {
+	if (lineCount < 2 && noNoneFirst) noInvalidLine=1;
+
+	if (noInvalidLine) print "This csv file has been validated.";
+	else print "This csv file is invalid: It has at least one double line.";
+}'
+
+mawk "$mawk_prog" "$INPUT" | tee "$OUTPUT"
+

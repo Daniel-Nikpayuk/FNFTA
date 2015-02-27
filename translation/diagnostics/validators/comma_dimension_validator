@@ -1,0 +1,61 @@
+#!/bin/bash
+
+INPUT="$1"
+OUTPUT="${INPUT##*/}-comma_dimension.log"
+
+mawk_prog='BEGIN { commaDimsSame=0; hasMismatch; commaDim=0; firstLine=0; secondLine=0; otherLines=0; line=1; }
+{
+	if (NF == 0)
+	{
+		otherLines=0;
+		firstLine=1;
+	}
+	else if (firstLine)
+	{
+		firstLine=0;
+		secondLine=1;
+	}
+	else if (secondLine)
+	{
+		secondLine=0;
+		commaDim=count($0, ",");
+		otherLines=1;
+	}
+	else if (otherLines)
+	{
+		if(count($0, ",") != commaDim)
+		{
+			hasMismatch=1;
+			otherLines=0;
+			print line;
+		}
+	}
+
+	++line;
+}
+
+function count(s, e,  c)
+{
+	c=0;
+	while (s != "")
+	{
+		if (match(s, e))
+		{
+			s=substr(s, RSTART+RLENGTH);
+			++c;
+		}
+		else s="";
+	}
+
+	return c;
+}
+
+END {
+	if (!hasMismatch) commaDimsSame=1;
+
+	if (commaDimsSame) print "This csv file has been validated.";
+	else print "This csv file is invalid: The lines preceding this statement are invalid.";
+}'
+
+mawk "$mawk_prog" "$INPUT" | tee "$OUTPUT"
+

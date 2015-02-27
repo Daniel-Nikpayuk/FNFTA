@@ -1,0 +1,28 @@
+#!/bin/bash
+
+DATA="$1"
+REPORTS="$2"
+
+HAVE="have.log"
+ALL="all.log"
+OUTPUT="diff-report.log"
+
+mawk_prog='BEGIN { num=""; initial_match=0; not_yet_posted="Name_NA,	Title_NA,	Months_NA,	Remuneration_NA,	Expenses_NA"; }
+{
+	if (match($0, "^[0-9]+,"))
+	{
+		num=substr($0, RSTART, RLENGTH-1);
+		initial_match=1;
+	}
+	else if (initial_match)
+	{
+		if ($0 != not_yet_posted) print num;
+		initial_match=0;
+	}
+}'
+
+mawk "$mawk_prog" "$DATA" | sort -u > "$HAVE"
+ls "$REPORTS/Band "*".pdf" | mawk '{ print $2 }' | sort -u > "$ALL"
+diff "$HAVE" "$ALL" | mawk '/^>/ {print $2}' | sort -u | tee "$OUTPUT"
+rm "$HAVE" "$ALL"
+

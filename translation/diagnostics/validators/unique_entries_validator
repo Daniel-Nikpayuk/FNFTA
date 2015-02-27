@@ -1,0 +1,19 @@
+#!/bin/bash
+
+INPUT="$1"
+OUTPUT="${INPUT##*/}-unique_entries.log"
+
+REPORTS="reports"
+
+mawk '{ if (match($0, "^[0-9]+,")) print substr($0, RSTART, RLENGTH-1); }' "$INPUT" > "$REPORTS.log"
+sort "$REPORTS.log" > "$REPORTS-s.log"
+sort -u "$REPORTS.log" > "$REPORTS-u.log"
+diff "$REPORTS-s.log" "$REPORTS-u.log" > "$REPORTS-diff.log"
+if test "$(cat "$REPORTS-diff.log")"
+	then echo "There are some redundant elements to report:" > "$OUTPUT"
+	     cat "$REPORTS-diff.log" | mawk '/^</ { print $2 }' >> "$OUTPUT"
+	else echo "There are no redundant elements to report." > "$OUTPUT"
+fi
+
+rm "$REPORTS.log" "$REPORTS-s.log" "$REPORTS-u.log" "$REPORTS-diff.log" && cat "$OUTPUT"
+

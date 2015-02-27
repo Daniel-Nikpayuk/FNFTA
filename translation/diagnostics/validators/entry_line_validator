@@ -1,0 +1,29 @@
+#!/bin/bash
+
+INPUT="$1"
+OUTPUT="${INPUT##*/}-entry_line.log"
+
+mawk_prog='BEGIN { allLinesValid=0; hasInvalidLine=0; line=1; }
+{
+	if (NF != 0)
+	{
+		match($0, "([^\ \t\n]+,)(\t+[^\ \t\n]+,)+(\t+[^\ \t\n,]+)")
+		if (RSTART != 1 || RLENGTH != length($0))
+		{
+			hasInvalidLine=1;
+			print line;
+		}
+	}
+
+	++line;
+}
+
+END {
+	if (!hasInvalidLine) allLinesValid=1;
+
+	if (allLinesValid) print "This csv file has been validated.";
+	else print "This csv file is invalid: The lines preceding this statement are invalid.";
+}'
+
+mawk "$mawk_prog" "$INPUT" | tee "$OUTPUT"
+
