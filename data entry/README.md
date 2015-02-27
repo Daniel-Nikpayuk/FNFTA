@@ -2,13 +2,10 @@
 
 This phase is broken down into four parts:
 
-1) Downloading.
-
-2) Image to text.
-
-3) Entry.
-
-4) Validation.
+1. Downloading.
+2. Image to text.
+3. Entry.
+4. Validation.
 
 ## Downloading:
 
@@ -23,13 +20,13 @@ The downloading subphase required getting these reports.
 Of all the parts, downloading was the easiest. The files were indexed by AANDC designation numbers as pdfs.
 I wrote a script to automate the download process:
 
-"download"
++ download
 
 ### Dependencies:
 
 The script was written in bash (linux), and in particular made calls to the given non-builtin non-trivial utility:
 
-wget (recursive downloader)
++ wget (recursive downloader)
 
 The pdfs themselves have not been (will not be) uploaded to GitHub directly, as it breaks the design and intentions
 of this medium. Instead, I have uploaded the most up-to-date collection to my onedrive account and linked to it here (137MB):
@@ -73,11 +70,9 @@ be avoided.
 
 With that said, I still attempted to automate as much as I could. I split it up into three scripts:
 
-digitize
-
-manual\_digitize
-
-manual\_extract
++ digitize
++ manual\_digitize
++ manual\_extract
 
 The main script was "digitize", where in particular I used some open source ocular character recognition (ocr) software generously
 provided by Google to convert the scanned image pdf text into regular text. It happened sometimes a particular report didn't
@@ -89,11 +84,9 @@ copying and pasting, I actually converted these pdfs to an image based version a
 
 ### Dependencies:
 
-convert (part of the ImageMagick toolset)
-
-tesseract (Google's open source ocr)
-
-pdftk (pdf toolkit)
++ convert (part of the ImageMagick toolset)
++ tesseract (Google's open source ocr)
++ pdftk (pdf toolkit)
 
 ### Limitations:
 
@@ -127,9 +120,8 @@ structure the text for each pdf *report-as-entry* in such a way that there was a
 The reason for privileging the minimizing of redundancy was it would then require less manual effort on the part of a human
 being. It's not a matter of laziness, but in fact of *error reduction* as well as health/sustainability of the labourer.
 Data entry is repetitive, and so the longer a single person works at it, the more likely she is to make a mistake.
-A nice Wired article discussing this being "What’s Up With That: Why It’s So Hard to Catch Your Own Typos":
-
-http://www.wired.com/2014/08/wuwt-typos/
+A nice Wired article discussing this being
+["What’s Up With That: Why It’s So Hard to Catch Your Own Typos"](http://www.wired.com/2014/08/wuwt-typos/).
 
 As well, one must consider things like repetitive strain injuries (RSI) and their preventative ergonomics---mimizing repetitive
 work is part of the solution.
@@ -142,62 +134,47 @@ https://onedrive.live.com/redir?resid=46D8BFF0C86B7646!210&authkey=!ABr\_wspxR0E
 With the structuring figured out as a guide, and as an extension of the do-as-little-work-as-possible principle,
 I wrote a small script to filter out the lines of raw text that would be of interest:
 
-factorize
++ factorize
 
 As such a task requires intricate filters, my script (and filters) were quite simple and limited still leaving some
 additional manual labour on my part, but: Anything to save from just that much more repetitive labour is still quite beneficial.
 The filtered lines were appended in the file:
 
-filtered\_lines.txt
++ filtered\_lines.txt
 
 As for this filtered raw data, as with pretty much all the labour in this project, the cleaning up and structuring part was done
 as a hybrid between human and machine, trying to make use of what each is able to do best. The machine side is made of the following:
 
-cleanup.tmp0
-
-cleanup.tmp1
-
-cleanup.tmp2
-
-cleanup.tmp3
++ cleanup.tmp0
++ cleanup.tmp1
++ cleanup.tmp2
++ cleanup.tmp3
 
 working on the data:
 
-data.tmp0
-
-data.tmp1
-
-data.tmp2
-
-data.tmp3
-
-data.tmp4
++ data.tmp0
++ data.tmp1
++ data.tmp2
++ data.tmp3
++ data.tmp4
 
 For an example of this, I took new lines of filtered data and saved them as data.tmp0. A few lines of this read as:
 
-188 Wilfred King Chief 12 117 476 26 322
++ 188 Wilfred King Chief 12 117 476 26 322
++ 188 Louis Brizzard Councillor 12 - 240
 
-188 Louis Brizzard Councillor 12 - 240
-
-
-317 Dettanikkeaze  Leo Chief 12 46 800 15 000 61 800
++ 317 Dettanikkeaze  Leo Chief 12 46 800 15 000 61 800
 
 With "cleanup.tmp0" the designation number was moved to the top; and a generic header line was added in, saved as "data.tmp1":
 
-188,			
++ 188,			
++ Name\_of\_Individual,	Position\_Title,	Number\_of\_Months,	Remuneration,	Expenses
++ Wilfred King Chief 12 117 476 26 322
++ Louis Brizzard Councillor 12 - 240
 
-Name\_of\_Individual,	Position\_Title,	Number\_of\_Months,	Remuneration,	Expenses
-
-Wilfred King Chief 12 117 476 26 322
-
-Louis Brizzard Councillor 12 - 240
-
-
-317,			
-
-Name\_of\_Individual,	Position\_Title,	Number\_of\_Months,	Remuneration,	Expenses
-
-Dettanikkeaze Leo Chief 12 46 800 15 000 61 800
++ 317,			
++ Name\_of\_Individual,	Position\_Title,	Number\_of\_Months,	Remuneration,	Expenses
++ Dettanikkeaze Leo Chief 12 46 800 15 000 61 800
 
 I manually normalized Chief and Council names to be only first and last name, so for example if I found a "Hugh King Sr"
 I changed it to "Hugh King\_Sr" (making for only one space character). Running the "cleanup.tmp1" replaces all space characters
@@ -217,9 +194,8 @@ With the final "data.tmp4" I copy that into the data\_structure.csv data entry f
 
 ### Dependencies:
 
-mawk (version of awk text editing programming language)
-
-Vim\* (text editor; \*any equivalent text editor obviously suffices [no "which editor is better" wars here please])
++ mawk (version of awk text editing programming language)
++ Vim\* (text editor; \*any equivalent text editor obviously suffices [no "which editor is better" wars here please])
 
 ### Limitations:
 
@@ -258,36 +234,24 @@ It's pretty self-explanatory, otherwise the only other thing worth noting is the
 I entered the data, as for as much as I attempted to maintain as faithful a reading/writing as possible, I did have to make a few
 editor choices:
 
-1) The first line of each modular entry is tagged as follows:
-
-	&lt;Band Designation Number&gt;,	&lt;First Nation Name&gt;,	&lt;Accounting Firm Name&gt;,	[\*]
-
-   The optional star means I interpreted (changed) to fit these specifications, in a a way I considered justified.
-
-   A double star [\*\*] indicates I took the 2014 year instead of the 2013 year in the report (a few reports had both).
-
-   A triple star [\*\*\*] indicates there are extra special circumstances regarding the report itself, and it's worth flagging.
-
-   The remainder of the given entry has a row of header tags pulled directly from the remuneration statements. As such it becomes
-
-   easier to do a semiotic analysis as well as translate/factorize into simpler tables at the user's discretion.
-
-2) If I lacked a proper name, I used "NA" as the given entry.
-
-3) Spaces ' ' within single entries are replaced by underscore '\_'.
-
-4) I did not (intentionally) change any spellings, though I did change all uppercase words to lowercase (except the initial letter).
-
-5) For unspecified &lt;Name&gt; headers I defaulted to "Name\_NA"; for &lt;Title&gt; headers I defaulted to "Title\_NA";
+1. The first line of each modular entry is tagged as follows:
++ &lt;Band Designation Number&gt;,	&lt;First Nation Name&gt;,	&lt;Accounting Firm Name&gt;,	[\*]
++ The optional star means I interpreted (changed) to fit these specifications, in a a way I considered justified.
++ A double star [\*\*] indicates I took the 2014 year instead of the 2013 year in the report (a few reports had both).
++ A triple star [\*\*\*] indicates there are extra special circumstances regarding the report itself, and it's worth flagging.
++ The remainder of the given entry has a row of header tags pulled directly from the remuneration statements. As such it becomes
++ easier to do a semiotic analysis as well as translate/factorize into simpler tables at the user's discretion.
+2. If I lacked a proper name, I used "NA" as the given entry.
+3. Spaces ' ' within single entries are replaced by underscore '\_'.
+4. I did not (intentionally) change any spellings, though I did change all uppercase words to lowercase (except the initial letter).
+5. For unspecified &lt;Name&gt; headers I defaulted to "Name\_NA"; for &lt;Title&gt; headers I defaulted to "Title\_NA";
 for &lt;Months&gt; "Months\_NA", etc.
-
-6) A comma ',' as content (not part of the csv meta structure) is represented by a double underscore "\_\_".
+6. A comma ',' as content (not part of the csv meta structure) is represented by a double underscore "\_\_".
 
 ### Dependencies:
 
-Vim\* (text editor; \*any equivalent text editor obviously suffices [no "which editor is better" wars here please])
-
-Evince (pdf viewer)
++ Vim\* (text editor; \*any equivalent text editor obviously suffices [no "which editor is better" wars here please])
++ Evince (pdf viewer)
 
 ### Limitations:
 
@@ -317,9 +281,8 @@ Though important, I here intend to make *meta-recommendations*:
 
 The data entry phase is no small task, and not to be taken for granted. Ideally open data published by governments would be
 standardized; easily accessible; easily translatable; thus freeing up the time of its citizens to provide value where their
-input is most needed and desired: As *critical citizens*. An example of this is actually given by the following TEDtalk:
-
-http://www.ted.com/talks/ben\_wellington\_how\_we\_found\_the\_worst\_place\_to\_park\_in\_new\_york\_city\_using\_big\_data
+input is most needed and desired: As *critical citizens*. An example of this is actually given by a recent
+[TEDtalk](http://www.ted.com/talks/ben\_wellington\_how\_we\_found\_the\_worst\_place\_to\_park\_in\_new\_york\_city\_using\_big\_data).
 
 If you are a government reading this: Chief and Council (3rd pillar); Federal; Provincial; Municipal, I recommend (in the good
 company of the many who I stand on the shoulders of) the standardization of policy and normalization of open data for citizen

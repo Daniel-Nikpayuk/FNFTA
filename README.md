@@ -5,33 +5,26 @@ This is an independent analysis of the First Nations Financial Transparency Act 
 
 ## Abstract:
 
-The FNFTA was passed into law March 27, 2013:
-
-http://www.aadnc-aandc.gc.ca/eng/1322056355024/1322060287419?utm\_source=transparency&utm\_medium=url
-
-Requiring all 582 AANDC designated Nations to publish the *schedule of remuneration and expenses*
+The [FNFTA](http://www.aadnc-aandc.gc.ca/eng/1322056355024/1322060287419?utm\_source=transparency&utm\_medium=url)
+was passed into law March 27, 2013, requiring all 582 AANDC designated Nations to publish the *schedule of remuneration and expenses*
 as well as *audited consolidated financial statements* reports for their Chief and Council to the
 federal government of Canada's online website.
 
 This independent analysis of the FNFTA is broken into three parts:
 
-1) It takes the schedule of remuneration and expenses reports posted online and unifies them into several relevant
+1. It takes the schedule of remuneration and expenses reports posted online and unifies them into several relevant
 comma seperated value (csv) open dataset files.
-
-2) It performs a semiotic analysis on the wordspace given by the filtered csv files.
-
-3) It performs a statistical analysis on the financial and other relevant data oriented around median and mean
+2. It performs a semiotic analysis on the wordspace given by the filtered csv files.
+3. It performs a statistical analysis on the financial and other relevant data oriented around median and mean
 earnings of Chief and Council amongst the given Nations.
 
 ## How to read this analysis:
 
 The workload was modularized into the following parts:
 
-1) Data entry phase.
-
-2) Translation phase.
-
-3) Data analysis phase.
+1. Data entry phase.
+2. Translation phase.
+3. Data analysis phase.
 
 The source code/documentation is organized along this division as well. Within each of the appropriately named folders
 you will find another "README.md" providing the relevant details of that phase.
@@ -46,16 +39,15 @@ I here give full disclosure (political and other) so there is no confusion about
 
 I am Inuvialuit, and although the FNFTA does effect me or my people directly in any way, I am part of the indigenous
 activist community who seek equal and fair relationships with Canadian settlers and the Canadian government.
-*I support the UN Declaration on the Rights of Indigenous Peoples*:
-
-http://www.un.org/esa/socdev/unpfii/documents/DRIPS\_en.pdf
-
+*I support* the [UN Declaration on the Rights of Indigenous Peoples](http://www.un.org/esa/socdev/unpfii/documents/DRIPS\_en.pdf)
 including the right to self-determination. As such, with the privileges in life I have been given, and as a form of
 reciprocity to those of Treaty 6 territory (the terrority in which I reside and benefit---as an outsider) I aim
 to help in the education and deconstruction of harmful colonial myths, social constructs, stereotypes. If you need
-a well written rundown of such myths, the following is an excellent resource:
+a well written rundown of such myths, the Chelsea Vowel's blogsite is an an excellent resource:
 
-http://apihtawikosisan.com/2012/12/canada-its-time-we-need-to-fix-this-in-our-generation/
+http://apihtawikosisan.com
+
+especially relevant is the post: [Canada, it’s time. We need to fix this in our generation.](http://apihtawikosisan.com/2012/12/canada-its-time-we-need-to-fix-this-in-our-generation/)
 
 As for my part, my motivation in particular is in the "Corrupt Indian Chief" myth, which is arguably the basis of the
 FNFTA legislation. By performing an independent analysis we have additional evidence to counter such racist colonial claims.
