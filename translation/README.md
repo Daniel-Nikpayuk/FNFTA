@@ -22,14 +22,16 @@ requires assuming certain characteristics about the data entry file, and so we m
 In particular, I had two varieties of scripts, a "differator" (I make up words that I probably shouldn't all the time),
 and several validators, all within the "diagnostics" folder:
 
-+ diagnostics/differators:
+diagnostics/differators:
+
 + report\_differator
 
 Here I simply compared the existing pdf files with the entry designation numbers in the data entry csv file to see if
 I was missing anything. As the FNFTA pdfs are slowly released one by one over time on the government website, I would
 need a reminder of what had changed whenever I returned to the project.
 
-+ diagnostics/validators:
+diagnostics/validators:
+
 + space\_validator
 + entry\_line\_validator
 + first\_line\_validator
@@ -109,18 +111,18 @@ As you can see, the actual header text is too small to read, but the graphic giv
 stands out far more than all the others and is easily the candidate for translating the header space. The R script "source.r" also
 provides the actual details as well:
 
-+ tail(t[ordered,])
-+ 10	-	Expenses, Name, Number\_of\_Months, Position, Remuneration
-+ 10	-	Expenses, Name, Number\_of\_Months, Position\_Title, Remuneration
-+ 11	-	Expenses, Name\_of\_Individual, Number\_of\_Months, Position, Remuneration
-+ 15	-	Expenses, Name\_NA, Number\_of\_Months, Remuneration, Title\_NA
-+ 23	-	Expenses\_NA, Months\_NA, Name\_NA, Remuneration\_NA, Title\_NA
-+ 156	-	Expenses, Name\_of\_Individual, Number\_of\_Months, Position\_Title, Remuneration
+	tail(t[ordered,])
+	Expenses, Name, Number_of_Months, Position, Remuneration				 10
+	Expenses, Name, Number_of_Months, Position_Title, Remuneration                           10
+	Expenses, Name_of_Individual, Number_of_Months, Position, Remuneration                   11
+	Expenses, Name_NA, Number_of_Months, Remuneration, Title_NA                              15
+	Expenses_NA, Months_NA, Name_NA, Remuneration_NA, Title_NA                               23
+	Expenses, Name_of_Individual, Number_of_Months, Position_Title, Remuneration             156
 
 Notably, and I observed this intuitively myself manually entering the data, but the follower headerspace with 156 pdfs matching
-it is the clear winner:
+it is the clear winner (in its natural order within the pdf reports):
 
-+ Name\_of\_Individual, Position\_Title, Number\_of\_Months, Remuneration, Expenses
+	Name_of_Individual, Position_Title, Number_of_Months, Remuneration, Expenses
 
 #### Dependencies:
 

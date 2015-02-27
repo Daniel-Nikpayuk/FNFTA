@@ -234,7 +234,7 @@ It's pretty self-explanatory, otherwise the only other thing worth noting is the
 I entered the data, as for as much as I attempted to maintain as faithful a reading/writing as possible, I did have to make a few
 editor choices:
 
-1) The first line of each modular entry is tagged as follows:
+a) The first line of each modular entry is tagged as follows:
 
 + &lt;Band Designation Number&gt;,	&lt;First Nation Name&gt;,	&lt;Accounting Firm Name&gt;,	[\*]
 + The optional star means I interpreted (changed) to fit these specifications, in a a way I considered justified.
@@ -243,16 +243,16 @@ editor choices:
 + The remainder of the given entry has a row of header tags pulled directly from the remuneration statements. As such it becomes
 easier to do a semiotic analysis as well as translate/factorize into simpler tables at the user's discretion.
 
-2) If I lacked a proper name, I used "NA" as the given entry.
+b) If I lacked a proper name, I used "NA" as the given entry.
 
-3) Spaces ' ' within single entries are replaced by underscore '\_'.
+c) Spaces ' ' within single entries are replaced by underscore '\_'.
 
-4) I did not (intentionally) change any spellings, though I did change all uppercase words to lowercase (except the initial letter).
+d) I did not (intentionally) change any spellings, though I did change all uppercase words to lowercase (except the initial letter).
 
-5) For unspecified &lt;Name&gt; headers I defaulted to "Name\_NA"; for &lt;Title&gt; headers I defaulted to "Title\_NA";
+e) For unspecified &lt;Name&gt; headers I defaulted to "Name\_NA"; for &lt;Title&gt; headers I defaulted to "Title\_NA";
 for &lt;Months&gt; "Months\_NA", etc.
 
-6) A comma ',' as content (not part of the csv meta structure) is represented by a double underscore "\_\_".
+f) A comma ',' as content (not part of the csv meta structure) is represented by a double underscore "\_\_".
 
 ### Dependencies:
 
