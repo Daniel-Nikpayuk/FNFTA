@@ -132,13 +132,85 @@ it is the clear winner (in its natural order within the pdf reports):
 + convert (part of the ImageMagick toolset)
 
 #### Limitations:
+
+As always, code verification (bug finding, semantic validation). More notably, the exact nature of this analysis, the distribution
+is the biggest limit here. It does not provide a universal solution regarding general contexts. It just happens the well behaved
+nature of this given context allows for this simple heuristic approach of distribution analysis to pass.
+
+In the broader solution, one would actually need to look at the branches of math called *partition theory* and *lattice theory*.
+Such analyses would look at every possible header subspace and the non-linearly ordered lattice of *chains* to determine
+maximal/optimal solutions. In this general case a unique solution is out of the question, and choosing from the collection of
+maximal solutions is a matter of the politics of interpretation.
+
+Finally it's worth noting with the full out partition theory analysis, looking only at the combinatorics of it, it is easy to see
+the computational power required for exact solutions is in fact impractical. Even if it weren't, the number of maximal solutions
+under many given constraints would still leave far too many solutions to for a human to manually look through. At the end of the
+day, heuristic solutions would be required regardless.
+
 #### Recommendation:
+
+The landscape of the strategy space for analyzing semiotics spaces is outlined in the above limitations. As a heuristic approach
+regardless of style is generally required, I would recommend not taking this subphase lightly.
+
+Beyond that, when one looks at the actual scripts written, there is much room for optimizations---especially factorizations of
+code. This is expected as most code presented here is more prototypical in nature, and this exact recommendation will be given
+repetitiously throughout.
 
 ### All header analysis:
 
+Here I perform a relatively simple cluster analysis of the individual headers, grouping them together by semantic equivalence.
+
 #### Intuition:
+
+With the headerspace decided upon in the bound header analysis, we know what headers we want all the others to translate toward.
+The simplest algorithm would be to go over the list of all headers, and decide which one from our terminal headerspace that given
+initial header would translate into.
+
+Any given analysis and preparation is inevitably doing this, but again going back to the philosophy of do-as-little-work-as-possible
+the main goal of this part of the analysis is to reduce human manual labour.
+
++ unique\_headers.log
++ gauge
++ partition
++ headers.log
++ create\_clusters
++ ordered\_words-15-02-16-0310.log
++ clusters
++ pull\_map
++ pulled\_map.log
++ folded\_map-15-02-16-0310.log
++ pull\_defaults
++ pulled\_defaults.log
++ folded\_default-15-02-16-0310.log
++ unfold\_maps
++ factor\_map.log
++ default\_map.log
+
+"unique\_headers" is tested with "gauge" and then "partition"-ed to create
+"headers.log" and the files in the "clusters" directory. The choices made in specifying
+partition are stored as a script in "create\_clusters".
+To help determine which words to gauge, "ordered\_words.log" (with a timestampe indicating
+it has been manually edited) is provided as reference. The clusters directory grows each time while headers.log shrinks.
+
+The script "pull\_map" creates "pulled\_map.log" which is the combination of headers.log and clusters.
+At this point pulled\_map.log is manually edited to define the core mapping used to create the factors
+and is saved under the name: "folded\_map.log" (with a timestamp).
+the defaults are pulled with "pull\_defaults" and saved as "pulled\_defaults". These are manually edited
+and saved as "folded\_defaults.log" (with a timestamp).
+
+The script "unfold\_maps" automates the process of reexpanding the folded maps into their respective
+"factor\_map.log" and "default\_map.log".
+
 #### Dependencies:
+
++ mawk (version of awk text editing programming language)
++ sort (commandline string sorter)
++ R (statistically oriented programming language; well suited for statistical graphics)
++ convert (part of the ImageMagick toolset)
++ longest\_positional\_match (word comparison metric)
+
 #### Limitations:
+
 #### Recommendation:
 
 ## Normalization:
@@ -148,6 +220,10 @@ it is the clear winner (in its natural order within the pdf reports):
 #### Intuition:
 #### Dependencies:
 #### Limitations:
+
+Interoperability: Keep mind the command line sorting algorithm is subtly different than ones defined in other environments (C++).
+Notably regarding "#".
+
 #### Recommendation:
 
 ## Consolidation (factorization):
