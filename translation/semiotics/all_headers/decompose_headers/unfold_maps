@@ -1,0 +1,48 @@
+#!/bin/bash
+
+FACTOR="$1"
+DEFAULT="$2"
+
+if [ -z "$1" -o -z "$2" ]; then echo "insufficient input, now exiting!"; exit; fi
+
+DIR="clusters"
+TMP="tmp.log"
+
+if [ -f "$TMP" ]; then echo "$TMP as the temporary file already exists. Exiting now!"; exit; fi
+
+declare -A map
+
+# incredibly inefficient, but I don't have time to learn Bash hacks right now:
+for ((k=0; k < $(wc -l "$DEFAULT" | mawk '{ print $1}'); ++k))
+do
+	from="$(mawk 'BEGIN { line=0; } { if (line == '$k') { print $1; }; ++line; }' "$DEFAULT")"
+	to="$(mawk 'BEGIN { line=0; } { if (line == '$k') { print $3; }; ++line; }' "$DEFAULT")"
+	map[$from]=$to
+done
+
+cat "$FACTOR" |
+while read line
+do
+	from=$(echo "$line" | mawk '{ print $1; }')
+	to=$(echo "$line" | mawk '{ print $3; }')
+	if [ -f "$DIR/$from.log" ]
+	then 
+		cat "$DIR/$from.log" |
+		mawk '{ print $0 " , '"$to"'"; }' >> "$TMP"
+	else
+		echo -e "$from , $to" >> "$TMP"
+	fi
+done
+
+sort "$TMP" > "factor_map.log"
+rm "$TMP"
+
+cat /dev/null > "default_map.log"
+cat factor_map.log |
+while read line
+do
+	from=$(echo "$line" | mawk '{ print $1; }')
+	to=$(echo "$line" | mawk '{ print $3; }')
+	echo -e "$from , ${map[$to]}" >> "default_map.log"
+done
+

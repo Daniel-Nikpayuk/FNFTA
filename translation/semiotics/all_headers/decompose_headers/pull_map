@@ -1,0 +1,6 @@
+#!/bin/bash
+
+ls clusters/ | mawk '{ print substr($0, 1, length($0)-4); }' |
+cat - headers.log |
+sort |
+mawk '{ print $0 "\t\t\t\t\t\t,\t"; }' > pulled_map.log

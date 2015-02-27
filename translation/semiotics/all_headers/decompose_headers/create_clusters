@@ -1,0 +1,79 @@
+#!/bin/bash
+
+cp unique_headers.log headers.log
+
+if [ -d clusters ]; then rm -r clusters; fi
+mkdir clusters
+
+./partition Months 70
+mv Months.log clusters/
+#Months.log 25 
+
+./partition Position 65
+mv Position.log clusters/
+#Position.log 11 
+
+./partition Expenses 55
+mv Expenses.log clusters/
+#Expenses.log 41 
+
+./partition Remuneration 55
+mv Remuneration.log clusters/
+#Remuneration.log 36 
+
+./partition Name 80
+mv Name.log clusters/
+#Name.log 7 
+
+./partition Title 65
+mv Title.log clusters/
+#Title.log 3 
+
+./partition Travel 55
+mv Travel.log clusters/
+#Travel.log 27 
+
+./partition Salary 55
+mv Salary.log clusters/
+#Salary.log 41 
+
+./partition Honoraria 50
+mv Honoraria.log clusters/
+#Honoraria.log 24 
+
+./partition Council 50
+mv Council.log clusters/
+#Council.log 9 
+
+./partition Frais 50
+mv Frais.log clusters/
+#Frais.log 7 
+
+./partition Nombre 70
+mv Nombre.log clusters/
+#Nombre.log 6 
+
+./partition Nom 70
+mv Nom.log clusters/
+#Nom.log 4 
+
+./partition Allowance 50
+mv Allowance.log clusters/
+#Allowance.log 6 
+
+./partition Pension 50
+mv Pension.log clusters/
+#Pension.log 4 
+
+./partition Cell 55
+mv Cell.log clusters/
+#Cell.log 5 
+
+./partition Per_Diems 50
+mv Per_Diems.log clusters/
+#Per_Diems.log 8 
+
+./partition Weeks 65
+mv Weeks.log clusters/
+#Weeks.log 4 
+

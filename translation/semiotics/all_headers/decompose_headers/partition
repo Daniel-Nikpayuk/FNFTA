@@ -1,0 +1,47 @@
+#!/bin/bash
+
+# Destructive form - determine the percentage with the non destructive "gauge" before calling this.
+
+INPUT="headers.log"
+TMP="tmp.log"
+
+if [ -f "$TMP" ]; then echo "$TMP as the \"tmp\" file already exists. exiting now."; exit; fi
+
+WORD="$1"
+OUTPUT="$WORD.log"
+
+if [ -f "$OUTPUT" ]; then echo "$OUTPUT as the \"output\" log already exists. exiting now."; exit; fi
+
+if [ -n "$2" ]; then PERCENT="$2"
+else echo "no percentage set! exiting now."; exit;
+fi
+
+partition()
+{
+	local mawk_prog='BEGIN \
+	{
+		space=" ";
+		quote="\"";
+		bin="longest_positional_match";
+		word=tolower("'"$WORD"'");
+		percent='"$PERCENT"' * length(word) / 100;
+		tmp="'"$TMP"'";
+	}
+
+	{
+		cmd=bin space quote word quote space quote tolower($0) quote
+		cmd | getline line;
+		split(line, stats);
+
+		if (stats[1] >= percent) print $0;
+		else print $0 >> tmp;
+	}'
+
+	mawk "$mawk_prog" "$INPUT" > "$OUTPUT"
+	mv "$TMP" "$INPUT"
+}
+
+if [ -n "$WORD" ]
+	then partition
+fi
+

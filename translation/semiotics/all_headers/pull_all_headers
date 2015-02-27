@@ -1,0 +1,28 @@
+#!/bin/bash
+
+INPUT="$1"
+OUTPUT1="all_headers.log"
+OUTPUT2="unique_headers.log"
+DIR1="word_count_R"
+DIR2="decompose_headers"
+
+mawk_prog='BEGIN {isHeaderLine=0;}
+{
+	if (match($0, "^[0-9]+,"))
+	{
+		isHeaderLine=1;
+	}
+	else if (isHeaderLine)
+	{
+		gsub(",\t+", "\n");
+		if ($0 != "") print $0;
+		isHeaderLine=0;
+	}
+}'
+
+mawk "$mawk_prog" "$INPUT" |
+sort > "$DIR1/$OUTPUT1"
+
+if [ ! -d "$DIR2" ]; then mkdir "$DIR2"; fi
+cat "$DIR1/$OUTPUT1" | sort -u > "$DIR2/$OUTPUT2"
+

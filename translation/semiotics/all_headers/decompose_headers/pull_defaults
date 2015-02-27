@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# folded_map
+FILE="$1"
+
+if [ -z "$1" ]; then echo "insufficient input, now exiting!"; exit; fi
+
+mawk '{ print $3; }' "$FILE" |
+sort -u |
+mawk '{ print $0 "\t\t\t\t\t\t,\t0"; }' > pulled_defaults.log

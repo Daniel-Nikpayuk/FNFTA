@@ -1,0 +1,64 @@
+#!/bin/bash
+
+# Non destructive form - better used for determining the percentage before using the destructive partition script.
+
+INPUT="headers.log"
+TMP="tmp.log"
+
+if [ -f "$TMP" ]; then echo "$TMP as the \"tmp\" file already exists. exiting now."; exit; fi
+
+WORD="$1"
+OUTPUT="$WORD.gauge.log"
+
+if [ -f "$OUTPUT" ]; then echo "$OUTPUT as the \"gauge\" log already exists. exiting now."; exit; fi
+
+STATS=""
+
+gauge()
+{
+	local PERCENT="$1"
+	local mawk_prog='BEGIN \
+	{
+		space=" ";
+		quote="\"";
+		bin="longest_positional_match";
+		word=tolower("'"$WORD"'");
+		percent='"$PERCENT"' * length(word) / 100;
+		count=0;
+	}
+
+	{
+		cmd=bin space quote word quote space quote tolower($0) quote
+		cmd | getline line;
+		split(line, stats);
+	
+		if (stats[1] >= percent)
+		{
+			print $0;
+			++count;
+		}
+	}'
+
+	mawk "$mawk_prog" "$INPUT" | tac > "$TMP"
+
+	local COUNT="$PERCENT% - $(wc -l "$TMP" | mawk '{print $1}')"
+	echo -e "\n$COUNT" >> "$TMP"
+	echo -e "$COUNT"
+	cat "$TMP" >> "$OUTPUT"
+	echo "" >> "$OUTPUT"
+
+	STATS="$STATS\n$COUNT"
+}
+
+if [ -n "$WORD" ]
+then
+	echo "$WORD:"
+	for ((percent=50; percent <= 100; percent+=5))
+	do gauge $percent
+	done
+
+	echo -e "$STATS" >> "$OUTPUT"
+	tac "$OUTPUT" > "$TMP"
+	mv "$TMP" "$OUTPUT"
+fi
+

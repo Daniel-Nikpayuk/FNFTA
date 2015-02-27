@@ -1,0 +1,32 @@
+#!/bin/bash
+
+INPUT="$1"
+TITLE="word_count"
+OUTPUT="$TITLE.csv"
+
+mawk_prog_split='
+{
+	gsub("(\_|\/|\(|\)|\&|\#)", " ");
+	for (k=1; k <= NF; ++k) print $k;
+}'
+
+mawk_prog_count='BEGIN { word=""; count=0; }
+{
+	if ($0 == word) ++count;
+	else
+	{
+		if (count != 0) print word",\t"count;
+		word=$0;
+		count=1;
+	}
+}
+END { print word",\t"count; }'
+
+mawk "$mawk_prog_split" "$INPUT" |
+sort |
+mawk "$mawk_prog_count" > "$OUTPUT"
+
+R --no-save < "source.r"
+convert -density 300 "$TITLE.pdf" "$TITLE.jpg"
+rm "$OUTPUT" "$TITLE.pdf"
+
