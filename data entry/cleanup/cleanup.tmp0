@@ -1,0 +1,33 @@
+#!/bin/bash
+
+# Assumes designation numbers in front with no headers and initial cleaned up content.
+
+mawk_prog='BEGIN { print ""; first=1; }
+{
+	if (match($1, "[0-9]+"))
+	{
+		if (first)
+		{
+			print $1 ",\t\t\t";
+			print "Name_of_Individual,\tPosition_Title,\tNumber_of_Months,\tRemuneration,\tExpenses";
+			right=$2;
+			for (k=3; k <= NF; ++k) right=right " " $k;
+			print right;
+			first=0;
+		}
+		else
+		{
+			right=$2;
+			for (k=3; k <= NF; ++k) right=right " " $k;
+			print right;
+		}
+	}
+	else
+	{
+		print "";
+		first=1;
+	}
+}'
+
+mawk "$mawk_prog" data.tmp0 > data.tmp1
+

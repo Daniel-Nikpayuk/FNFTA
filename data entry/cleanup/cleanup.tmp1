@@ -1,0 +1,36 @@
+#!/bin/bash
+
+# Assumes "^[0-9]+," at top, and "name, position, ..." below it, otherwise no number in front. Paragraphs end with blank "^$" line.
+
+mawk_prog='BEGIN { num=0; on=0; }
+{
+	gsub("’", "\'"'"'");
+	if (match($0, "^[0-9]+,"))
+	{
+		num=1;
+		print $0;
+	}
+	else if (num)
+	{
+		on=1;
+		num=0;
+		print $0;
+	}
+	else if ($0 == "")
+	{
+		on=0;
+		print $0;
+	}
+	else
+	{
+		gsub("(,|\.|\$)", "");
+
+		right=$3;
+		for (k=4; k <= NF; ++k) right=right " " $k;
+		gsub("(-|—|~)+", "0", right);
+		print $1 "_" $2 ",\t\t" right
+	}
+}'
+
+mawk "$mawk_prog" data.tmp1 > data.tmp2
+

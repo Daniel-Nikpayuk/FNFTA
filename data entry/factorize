@@ -1,0 +1,36 @@
+#!/bin/bash
+
+LOCALPART1="Band "
+LOCALPART2=" - "
+LOCALPARTS="Remuneration and Expenses"
+
+INCOMPLETE="incomplete.txt"
+COMPLETE="complete.txt"
+
+end=800
+if [ ! -f "$INCOMPLETE" ]; then for ((k=1; k < $end; ++k)); do echo $k >> "$INCOMPLETE"; done; fi
+mv "$INCOMPLETE" "$INCOMPLETE.tmp"
+
+if [ ! -f "$COMPLETE" ]; then touch "$COMPLETE"; fi
+mv "$COMPLETE" "$COMPLETE.tmp"
+
+factorize-and-update()
+{
+	local name="$LOCALPART1""$1""$LOCALPART2""$LOCALPARTS"
+	local mawk_prog='/[0-9][0-9][0-9]+/ { gsub("[\$\.,]", " "); print '$1', $0; } END { print ""; }'
+	if [ -f "$name"".txt" ]
+	then
+		mawk "$mawk_prog" "$name"".txt" >> structure/filtered_lines.txt
+		echo $1 >> "$COMPLETE.tmp"
+	else echo $1 >> "$INCOMPLETE"
+	fi
+}
+
+cat "$INCOMPLETE.tmp" |
+while read k
+	do factorize-and-update $k
+done
+
+sort -u "$COMPLETE.tmp" > "$COMPLETE"
+rm "$INCOMPLETE.tmp" "$COMPLETE.tmp"
+

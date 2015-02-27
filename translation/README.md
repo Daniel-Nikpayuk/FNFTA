@@ -36,10 +36,15 @@ need a reminder of what had changed whenever I returned to the project.
 diagnostics/validators:
 
 space\_validator
+
 entry\_line\_validator
+
 first\_line\_validator
+
 comma\_dimension\_validator
+
 unique\_entries\_validator
+
 count\_validator
 
 All the validators read in the data entry csv file. The "space" validator simply made sure each entry was seperated by no more
@@ -55,7 +60,9 @@ to make sure I wasn't missing anything. It's a bit redundant with the differator
 #### Dependencies:
 
 mawk (version of awk text editing programming language)
+
 sort (commandline string sorter)
+
 diff (compares two files to show where they differ)
 
 #### Limitations:
@@ -95,6 +102,7 @@ Though far from a thorough/proper solution, one relatively simple approach is to
 headers. I have written two simple scripts for this purpose:
 
 pull\_bound\_headers
+
 csv\_bound\_headers
 
 The first, "pull\_bound\_headers" pulls the bound headers from the data entry file, sorts them, and removes duplicates. The
@@ -116,11 +124,17 @@ stands out far more than all the others and is easily the candidate for translat
 provides the actual details as well:
 
 tail(t[ordered,])
+
 Expenses, Name, Number\_of\_Months, Position, Remuneration					10
+
 Expenses, Name, Number\_of\_Months, Position\_Title, Remuneration				10
+
 Expenses, Name\_of\_Individual, Number\_of\_Months, Position, Remuneration			11
+
 Expenses, Name\_NA, Number\_of\_Months, Remuneration, Title\_NA					15
+
 Expenses\_NA, Months\_NA, Name\_NA, Remuneration\_NA, Title\_NA					23
+
 Expenses, Name\_of\_Individual, Number\_of\_Months, Position\_Title, Remuneration		156
 
 Notably, and I observed this intuitively myself manually entering the data, but the follower headerspace with 156 pdfs matching
@@ -131,8 +145,11 @@ Name\_of\_Individual, Position\_Title, Number\_of\_Months, Remuneration, Expense
 #### Dependencies:
 
 mawk (version of awk text editing programming language)
+
 sort (commandline string sorter)
+
 R (statistically oriented programming language; well suited for statistical graphics)
+
 convert (part of the ImageMagick toolset)
 
 #### Limitations:

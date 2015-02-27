@@ -1,0 +1,35 @@
+#!/bin/bash
+
+# Assumes position title is one word.
+
+mawk_prog='BEGIN { num=0; on=0; }
+{
+	if (match($0, "^[0-9]+,"))
+	{
+		num=1;
+		print $0;
+	}
+	else if (num)
+	{
+		on=1;
+		num=0;
+		print $0;
+	}
+	else if ($0 == "")
+	{
+		on=0;
+		print $0;
+	}
+	else
+	{
+		match($0, "^.+"$2);
+
+		right=$4;
+		for (k=5; k <= NF; ++k) right=right " " $k;
+		left=($2 == "Chief") ? ",\t\t" : ",\t";
+		print substr($0, RSTART, RLENGTH) left $3 ",\t\t" right
+	}
+}'
+
+mawk "$mawk_prog" data.tmp2 > data.tmp3
+
