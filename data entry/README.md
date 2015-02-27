@@ -160,21 +160,21 @@ working on the data:
 
 For an example of this, I took new lines of filtered data and saved them as data.tmp0. A few lines of this read as:
 
-> 188 Wilfred King Chief 12 117 476 26 322
-> 188 Louis Brizzard Councillor 12 - 240
+> + 188 Wilfred King Chief 12 117 476 26 322
+> + 188 Louis Brizzard Councillor 12 - 240
 >
-> 317 Dettanikkeaze  Leo Chief 12 46 800 15 000 61 800
+> + 317 Dettanikkeaze  Leo Chief 12 46 800 15 000 61 800
 
 With "cleanup.tmp0" the designation number was moved to the top; and a generic header line was added in, saved as "data.tmp1":
 
-> 188,
-> Name\_of\_Individual,	Position\_Title,	Number\_of\_Months,	Remuneration,	Expenses
-> Wilfred King Chief 12 117 476 26 322
-> Louis Brizzard Councillor 12 - 240
+> + 188,
+> + Name\_of\_Individual,	Position\_Title,	Number\_of\_Months,	Remuneration,	Expenses
+> + Wilfred King Chief 12 117 476 26 322
+> + Louis Brizzard Councillor 12 - 240
 >
-> 317,
-> Name\_of\_Individual,	Position\_Title,	Number\_of\_Months,	Remuneration,	Expenses
-> Dettanikkeaze Leo Chief 12 46 800 15 000 61 800
+> + 317,
+> + Name\_of\_Individual,	Position\_Title,	Number\_of\_Months,	Remuneration,	Expenses
+> + Dettanikkeaze Leo Chief 12 46 800 15 000 61 800
 
 I manually normalized Chief and Council names to be only first and last name, so for example if I found a "Hugh King Sr"
 I changed it to "Hugh King\_Sr" (making for only one space character). Running the "cleanup.tmp1" replaces all space characters
@@ -235,14 +235,12 @@ I entered the data, as for as much as I attempted to maintain as faithful a read
 editor choices:
 
 1. The first line of each modular entry is tagged as follows:
-
-+ &lt;Band Designation Number&gt;,	&lt;First Nation Name&gt;,	&lt;Accounting Firm Name&gt;,	[\*]
-+ The optional star means I interpreted (changed) to fit these specifications, in a a way I considered justified.
-+ A double star [\*\*] indicates I took the 2014 year instead of the 2013 year in the report (a few reports had both).
-+ A triple star [\*\*\*] indicates there are extra special circumstances regarding the report itself, and it's worth flagging.
-+ The remainder of the given entry has a row of header tags pulled directly from the remuneration statements. As such it becomes
-+ easier to do a semiotic analysis as well as translate/factorize into simpler tables at the user's discretion.
-
+> + &lt;Band Designation Number&gt;,	&lt;First Nation Name&gt;,	&lt;Accounting Firm Name&gt;,	[\*]
+> + The optional star means I interpreted (changed) to fit these specifications, in a a way I considered justified.
+> + A double star [\*\*] indicates I took the 2014 year instead of the 2013 year in the report (a few reports had both).
+> + A triple star [\*\*\*] indicates there are extra special circumstances regarding the report itself, and it's worth flagging.
+> + The remainder of the given entry has a row of header tags pulled directly from the remuneration statements. As such it becomes
+> + easier to do a semiotic analysis as well as translate/factorize into simpler tables at the user's discretion.
 2. If I lacked a proper name, I used "NA" as the given entry.
 3. Spaces ' ' within single entries are replaced by underscore '\_'.
 4. I did not (intentionally) change any spellings, though I did change all uppercase words to lowercase (except the initial letter).
