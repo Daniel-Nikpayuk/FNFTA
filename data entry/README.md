@@ -234,19 +234,25 @@ It's pretty self-explanatory, otherwise the only other thing worth noting is the
 I entered the data, as for as much as I attempted to maintain as faithful a reading/writing as possible, I did have to make a few
 editor choices:
 
-+ The first line of each modular entry is tagged as follows:
-+ + &lt;Band Designation Number&gt;,	&lt;First Nation Name&gt;,	&lt;Accounting Firm Name&gt;,	[\*]
-+ + The optional star means I interpreted (changed) to fit these specifications, in a a way I considered justified.
-+ + A double star [\*\*] indicates I took the 2014 year instead of the 2013 year in the report (a few reports had both).
-+ + A triple star [\*\*\*] indicates there are extra special circumstances regarding the report itself, and it's worth flagging.
-+ + The remainder of the given entry has a row of header tags pulled directly from the remuneration statements. As such it becomes
+1) The first line of each modular entry is tagged as follows:
+
++ &lt;Band Designation Number&gt;,	&lt;First Nation Name&gt;,	&lt;Accounting Firm Name&gt;,	[\*]
++ The optional star means I interpreted (changed) to fit these specifications, in a a way I considered justified.
++ A double star [\*\*] indicates I took the 2014 year instead of the 2013 year in the report (a few reports had both).
++ A triple star [\*\*\*] indicates there are extra special circumstances regarding the report itself, and it's worth flagging.
++ The remainder of the given entry has a row of header tags pulled directly from the remuneration statements. As such it becomes
 easier to do a semiotic analysis as well as translate/factorize into simpler tables at the user's discretion.
-+ If I lacked a proper name, I used "NA" as the given entry.
-+ Spaces ' ' within single entries are replaced by underscore '\_'.
-+ I did not (intentionally) change any spellings, though I did change all uppercase words to lowercase (except the initial letter).
-+ For unspecified &lt;Name&gt; headers I defaulted to "Name\_NA"; for &lt;Title&gt; headers I defaulted to "Title\_NA";
+
+2) If I lacked a proper name, I used "NA" as the given entry.
+
+3) Spaces ' ' within single entries are replaced by underscore '\_'.
+
+4) I did not (intentionally) change any spellings, though I did change all uppercase words to lowercase (except the initial letter).
+
+5) For unspecified &lt;Name&gt; headers I defaulted to "Name\_NA"; for &lt;Title&gt; headers I defaulted to "Title\_NA";
 for &lt;Months&gt; "Months\_NA", etc.
-+ A comma ',' as content (not part of the csv meta structure) is represented by a double underscore "\_\_".
+
+6) A comma ',' as content (not part of the csv meta structure) is represented by a double underscore "\_\_".
 
 ### Dependencies:
 
