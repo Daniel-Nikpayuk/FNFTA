@@ -183,7 +183,7 @@ The first part within the "all\_headers" folder is the script:
 
 + pull\_all\_headers
 
-which pulls all headers (unbound) and stores them with repetition in the "word\_count" folder:
+which pulls all headers (unbound) and stores them with repetition in the "word\_count\_R" folder:
 
 + all\_headers.log
 + csv\_word\_count
@@ -193,7 +193,7 @@ which pulls all headers (unbound) and stores them with repetition in the "word\_
 
 Here we invoke the "csv\_word\_count" script which counts the number of each header, calls "source.r" and produces the "word\_count.jpg":
 
-![word count](semiotics/all_headers/word_count/word_count.jpg)
+![word count](semiotics/all_headers/word_count_R/word_count.jpg)
 
 as well as the "ordered\_words.log" file. Though a minor detour from the main effort, these "ordered words" are useful in the following.
 With that said, the "pull\_all\_headers" script also pulls all headers, sorts and stores them uniquely in the "decompose\_headers" folder:
