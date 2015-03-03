@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# expects "factor_map[...].csv" as input. [...] being the timestamp of the manually edited version.
+
+FILE="data_structure-header_map.log"
+
+mawk '{ if ($0 != "") print $0; }' $1 > "$FILE"
+

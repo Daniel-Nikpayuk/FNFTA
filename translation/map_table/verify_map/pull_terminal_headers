@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# is intended to take "factor_map[...].csv" as input---the edited version with a time stamp.
+
+FILE="terminal_headers.log"
+
+mawk '{ if ($0 != "") print $3; }' $1 |
+sort -u | tee "$FILE"
+

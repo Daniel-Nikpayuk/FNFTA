@@ -1,0 +1,8 @@
+#!/bin/bash
+
+INPUT="pull_bad_cols.r"
+OUTPUT="bad_cols.log"
+
+R --no-save < "$INPUT" |
+tee "$OUTPUT"
+
