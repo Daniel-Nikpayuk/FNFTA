@@ -226,10 +226,13 @@ sifting semantically unrelated words). If you're familar with machine learning, 
 the learning rate, to repeat: It gauges the number of words sifted returning both the words and the numbers; it does this for
 a range of parameters from 50%-100%. One then goes through those filters and chooses which one by percent.
 
+I should give a brief explanation on the metric used, as it was hand-coded by myself, and although I do have the code open sourced
+up on GitHub, I don't yet have documentation up explaining how it works.
+
 Using this information we destructively "partition" the "headers.log" file keeping unrelated words within "headers.log" and moving
 related words into the "clusters" directory within their own file.  The choices made in specifying partition have been stored as
 a script in "create\_clusters" for transparency. As well, in order to help determine which words to gauge, "ordered\_words.log"
-(with a timestampe indicating it may change in the future) is provided as reference. The "clusters" directory grows each time
+(with a timestamp indicating it may change in the future) is provided as reference. The "clusters" directory grows each time
 while "headers.log" shrinks in terms of effect.
 
 The script "pull\_map" creates "pulled\_map.log" which takes the remaining words in "headers.log" and adds back
@@ -239,7 +242,7 @@ At this point pulled\_map.log is manually edited to define the core mapping and 
 
 + Note: some of the terminal headers within "folded\_map.log" end in an asterisk '\*' meaning there wasn't absolute certainty
 on my part that the interpretation of what should be mapped was correct. Keep in mind any code which interacts with this record
-ignores these asterisks---it's more of a comment for transparency.
+ignores these asterisks---it's more of a comment for human transparency and scrutiny.
 
 At this point, we're ready to prepare the defaults. The best way to reduce workload on this and to automate it is to realize
 that we will take a given header and translate it into the terminal headerspace---which has only five headers---and to manually
@@ -324,8 +327,8 @@ Finally is the "COPYING" file which is the standard GNU open source license.
 
 #### Dependencies:
 
-g++ (part of the open source GNU compiler collection)
-nik (part of my personal C++ template library)
++ g++ (part of the open source GNU compiler collection)
++ nik (part of my personal C++ template library)
 
 #### Limitations:
 
@@ -350,15 +353,27 @@ reduces this---with the tradeoff of course of greatly increasing development tim
 
 ## Consolidation (factorization):
 
+This subphase takes the raw header table from the previous subphase, and with the terminal headerspace in mind translates
+(factorizes) all other headers into and condensed, consolidated csv file.
+
 #### Intuition:
 
-For as much automation as there was in this section, it was also heavily human oriented. There are four notable parts
-with the "map\_table" folder:
+For as much automation as there is in this section, it was also heavily human oriented. There are four notable parts
+within the "map\_table" folder:
 
 + restructure\_map
 + verify\_map
 + clean\_raw
 + consolidate
+
+We begin by taking the "factor\_map.log" from the semiotic analysis subphase, and do our due diligence on it, going through
+each report and making sure our header translations are appropriate not just as general patterns, but in regards to actual
+context (the pdf reports). For this, the "restructure\_map" part takes that factor map and reorganizes it to be much more
+user-friendly and human readable for verification purposes. The "verify\_map" is obviously the part where we do this verification.
+
+Once these parts are done, before we can actually factorize our raw table, we need to go over the entries themselves and make
+sure they follow the translative assumptions. This will be our "clean\_raw" part, and finally we will be able to translate
+in the "consolidate" part.
 
 ### Restructuring the factor map for user-friendly human verification:
 
@@ -371,18 +386,43 @@ Within the "map\_table/restructure\_map" subfolder:
 + factor\_map.csv
 + COPYING
 
+The "map\_table.h" and its "main.cpp" compile a binary which takes the "data\_structure-entry.csv" (with timestamp) as well as
+the "factor\_map.log" as input and returns the "factor\_map.csv" as output. In particular, the data structure headers are read,
+are then repositioned to form a column of text (instead of a row), and the appropriate header mappings based off the factor map
+are added as a second column. A leftmost column is also added with the First Nation designation number as its entries for record
+keeping purposes. Finally, although not absolutely necessary, each entry is separated by a line space for human friendly reading.
+
 ### Verifying the factor map:
 
-"map\_table/verify\_map":
+With a more human friendly rendition, one makes a timestamped copy of the "factor\_map.csv" and works on it within
+the "map\_table/verify\_map" folder:
 
 + factor\_map-15-03-03-0210.csv
 + pull\_terminal\_headers
 + terminal\_headers.log
 + make\_header\_map
 
+Here, "pull\_terminal\_headers" is a script used as a sanity check: It pulls the terminal headers and returns only unique values,
+double checking the manual entry for basic errors.
+
+As with the creation of the "folded\_map.log" in *All headers* analysis, some of the terminal headers within "factor\_map.csv"
+end in an asterisk '\*' meaning even after the contextual pdf verification, there still wasn't absolute certainty on my part that
+the interpretation of what should be mapped was correct.
+
++ Note: I overused this asterisk convention, many translations I was fairly confident about, but I decided to play it safe---if any
+doubt whatsoever I tended to add the asterisk. Once again, keep in mind any code which interacts with this record ignores these
+asterisks---it's more of a comment for human transparency and scrutiny.
++ Note: As well, if you take a look at the "terminal\_headers.log" generated by the "pull\_terminal\_headers" script, you'll notice
+a "Drop" header, which is another informal convention. There were a few exceptions of headers where they did not properly translate,
+nor could they be cleaned for the final consolidation. In such cases I have labelled them as "Drop" with the understanding that in
+the consolidation phase, when encountered, they will simply be dropped and not added to the final consolidated csv file.
+
+Lastly, the "make\_header\_map" script simply removed the human readable line spaces from the factor map, thus converting it properly
+into a comma separated value file---this being important as the consolidation assumes and makes use of the csv file generated by this.
+
 ### Cleaning and converting the raw data table:
 
-"map\_table/clean\_raw":
+Within the "map\_table/clean\_raw" folder:
 
 + default\_map.log
 + data\_structure-raw-15-03-03-0009.csv
@@ -391,40 +431,107 @@ Within the "map\_table/restructure\_map" subfolder:
 + bad\_cols.log
 + clean\_raw.r
 
+The "default\_map.log" is the one generated from the All headers analysis. The initial work done is within the "pull\_bad\_cols.r"
+R script, and the "pull\_bad\cols" (without the ".r" extension) is a bash wrapper script to simplify and redirect its output.
+The "data\_structure-raw.csv" (with timestamp) is read in along with the "default\_map.log". Columns considered "bad" are numerical
+columns which have 'NA' values. The algorithm checks the default map (default will tell us whether it is numerical by defaulting
+to '0', or not, by defaulting to 'NA'). So first we find which columns are numerical by default, properly convert them to numerical
+values (initially when read in they're assumed to be character strings), and then check if any of them exist as 'NA' values.
+For those columns with 'NA' values, a sorted simplified version of the entries of that column are returned; simplified by removing
+redundancy and only returning unique values once (otherwise the column would be too long and tedious for human eyes to glean error patterns).
+These bad columns are saved as "bad\_cols.log".
+
+Once the nature of "bad" is determined and for which columns, the "clean\_raw.r" R script catalogues and cleans those columns.
+If you look at the code as a programmer, you'll notice its inefficiency, but I chose to write it this way because it provides
+human readable (semi) transparent documentation which can be held up to scrutiny.
+
 ### Consolidating the cleaned raw data table:
 
-"map\_table/consolidate":
+Within the "map\_table/consolidate" folder:
 
 + data\_structure-header\_map.log
 + data\_structure-cleaned\_raw-15-03-03-0315.csv
 + source.r
 
+From the "verify\_map" part earlier, we have the "data\_structure-header\_map.log" file (derived and verified from the "factor\_map.csv"
+file). We have the "data\_structure-cleaned\_raw.csv" (with timestamp) from the previous part. Our "source.r" R script takes the cleaned
+data structure, uses the header map to map each column header, and accumulate it into a condensed data structure.
+This final consolidated structure is the starting point for the statistical analysis within the next phase.
+
 #### Dependencies:
+
++ g++ (part of the open source GNU compiler collection)
++ nik (part of my personal C++ template library)
++ R (statistically oriented programming language; well suited for statistical graphics)
+
 #### Limitations:
 
-numbers in parentheses "(160)" for example seems to be a convention of subtraction,
-but I likely removed (inconsistently) from the original data entry table---problem.
+This subphase has the biggest limitations within this whole analysis and is the weakest link.
 
-"Other" is problematic and will likely skew the final results a little.
+### Technical:
 
-Generic Remunerations don't distinguish council and non-council varieties, so the results are skewed anyway.
+For starters, the "map\_table.h" and "main.cpp" are very similar to the "translate\_table.h" and its respective "main.cpp"
+in the Normalization subphase. The reason for this again is the use of custom code. In the long run, as I've mentioned before,
+I plan on further refining my personal "nik" library and will be able to rewrite and greatly simplify and factor out the
+redundancy and uneven/unbalanced modular forms---the code will better mitigate complexity.
+
+I will also point out that I am a relative beginner to the R programming language itself. If you look at the "source.r" of the
+consolidate subphase, as an R coder this might be obvious to you. If there's a better way to work this code, feel free to share.
+It gets the job done, but I'm fairly certain there's a more elegant more efficient way.
+
+### Semantic/Political:
+
+First is a human limitation.
+
+During the data entry phase, I encountered numbers in parentheses such as "(160)" as entries.  As a non-accountant, I didn't know
+what to do with these. For starters, going back to the design choices to modularize the data entry and translation phases, I again
+made this choice to make documentation and interpretation more accountable.  I did my best to "leave the crime scene undisturbed"
+so to speak. With this design policy, I also did my best to leave entries such "(160)" the way they were, but in my haste or moments
+of reduced stamina I may have removed a few such parentheses.
+
+Secondly, again with the parenthesized numbers, regarding interpretation---as I said I am a non-accountant---I looked around online
+and best I can tell this is a convention of subtraction. This is how I interpeted it, but it's possible my interpretation is wrong.
+This again is why I tried to be so thorough regarding documenting my own process. With that said, to be fair, in certain
+contexts---when it comes to statistical averages that is---such numbers are quite small and don't actually change metric
+output that much.
+
+Another point is the detail of finance chosen at the First Nations' administrative level. Many if not most remuneration and expense
+reports gave lump sums in terms of their remunerations and their expenses. If for example activists, journalists, politicians,
+policy makers, think tanks, etc. use these numbers, they do not distinguish council and non-council varieties of finance. If for
+example someone is interested in Council's median salary in terms of what they're paid for their role as Council, the median
+provided here will be skewed to be higher than the numbers this person seeks.
+
+The likely biggest issue with this analysis is with column headers such as "Other", "Other Remuneration", etc. When I translated
+these, I got a feel for the overall meaning, and I interpreted such headers to default as "Remuneration". Having the practical
+experience though of actually looking through these pdf reports, I'm fairly certain many of them were intended as "Expenses".
+As such, this will factor in to any final statistic and will again skew it to be a bit high.
 
 #### Recommendation:
+
+Auditing of the technical code, especially the custom code done by me.
+
+I would like to point out here, one of the major intents of this project was never to get perfect statistics. I acknowledge
+due to insufficient interpretation at the translation stage, the final numbers will be skewed a bit high. For those interested
+in better accuracy; it is easy enough to *branch off* from this point, go through the audited financial statements for each
+nation and refine the interpetation of headers such as "Other". This is also an aim of open sourcing this project, and
+part of the open source philosophy.
 
 ## Conclusion:
 
 I chose to create a seperate "translation" phase even though it greatly extended the workload as part of the modular design
-of the entire project. Even now, knowing this, I have no regrets and feel it is a best practice.
+of the entire project. Even now, knowing this, I have no regrets and feel it is a best practice. I've touched upon this
+in the documentation above, but will reiterate it here:
 
-The first reason being transparency.
+The first reason being transparency. As a first time project, there is great room for refinement, optimization of both the
+methods and the data, but at least what was done was documented. Anyone can take the work here, and at any point branch off
+to do their own analysis. The code is open, and I recognize not everyone has the technical background to read this digital
+literature, but at least the methods have been explained (hopefully) in approachable terms, and in particular the highest
+point of debate---the *interpretation* of headers---is in a simple text readable form, which anyone can read, regardless
+of technical knowledge.
 
-Secondly is life-span and reusability.
-
-The more I look at how much non-council financial information is required to be posted, the more I think the intent
-is for the feds to use this information to size up their opponent: Legal battle with a First Nation? Legal and political
-strategy is determined by knowing how much infrastructure and resources they have; what connections (networks, social support)
-they have to obtain additional funding for their legal battles, etc.
-
-Like the NSA "it's just metadata" argument, you can determine a surprising amount with even this "meta" information
-(and it's not even that meta).
+Secondly is life-span and reusability. If I did my job as engineer/designer, the workload is fairly well modularized and
+the modules themselves are fairly well balanced against each other. If I've set up the "media space" of this design well,
+the modular design has room to grow (extension, scale). If the modules are well partitioned and don't interfer with each
+other, they can also be optimized. As parts can untangle, parts of the code or ideas can be reused in other projects.
+I can't mathematically prove I've done any of this, but that was the intent, and hopefully I've done well enough.
 

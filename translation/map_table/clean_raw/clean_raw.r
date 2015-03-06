@@ -54,6 +54,7 @@ bad_cols <- c("#_of_Months",
 raw <- read.csv("data_structure-raw-15-03-03-0009.csv", colClasses="character", check.names=FALSE, strip.white=TRUE)
 
 ##########################
+
 sub_pars <- function (col_name)
 {
 	numeric_regex <- "[0-9]+(\\.[0-9]+)?"
@@ -65,6 +66,8 @@ clear <- function (col_name, str)
 {
 	gsub(str, "", raw[,col_name], fixed=TRUE)
 }
+
+##########################
 
 # Begin:
 
