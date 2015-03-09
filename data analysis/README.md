@@ -389,30 +389,33 @@ chief-analysis:
 + analyze
 + stats.log
 
-![Chiefs Restricted Median Remuneration Deviation](chief-analysis/jpg/Chiefs Restricted Median Remuneration Deviation.jpg)
-![Chiefs Restricted Mean Remuneration Deviation](chief-analysis/jpg/Chiefs Restricted Mean Remuneration Deviation.jpg)
-![Chiefs Prorated Median Remuneration Deviation](chief-analysis/jpg/Chiefs Prorated Median Remuneration Deviation.jpg)
-![Chiefs Prorated Mean Remuneration Deviation](chief-analysis/jpg/Chiefs Prorated Mean Remuneration Deviation.jpg)
 ![Chiefs Adjusted Median Remuneration Deviation](chief-analysis/jpg/Chiefs Adjusted Median Remuneration Deviation.jpg)
 ![Chiefs Adjusted Mean Remuneration Deviation](chief-analysis/jpg/Chiefs Adjusted Mean Remuneration Deviation.jpg)
-![Chiefs Restricted Median Expenses Deviation](chief-analysis/jpg/Chiefs Restricted Median Expenses Deviation.jpg)
-![Chiefs Restricted Mean Expenses Deviation](chief-analysis/jpg/Chiefs Restricted Mean Expenses Deviation.jpg)
-![Chiefs Prorated Median Expenses Deviation](chief-analysis/jpg/Chiefs Prorated Median Expenses Deviation.jpg)
-![Chiefs Prorated Mean Expenses Deviation](chief-analysis/jpg/Chiefs Prorated Mean Expenses Deviation.jpg)
 ![Chiefs Adjusted Median Expenses Deviation](chief-analysis/jpg/Chiefs Adjusted Median Expenses Deviation.jpg)
 ![Chiefs Adjusted Mean Expenses Deviation](chief-analysis/jpg/Chiefs Adjusted Mean Expenses Deviation.jpg)
-![Chiefs Difference between lower Restricted Remuneration Mean and Median](chief-analysis/jpg/Chiefs Difference between lower Restricted Remuneration Mean and Median.jpg)
-![Chiefs Difference between lower Prorated Remuneration Mean and Median](chief-analysis/jpg/Chiefs Difference between lower Prorated Remuneration Mean and Median.jpg)
 ![Chiefs Difference between lower Adjusted Remuneration Mean and Median](chief-analysis/jpg/Chiefs Difference between lower Adjusted Remuneration Mean and Median.jpg)
-![Chiefs Difference between upper Restricted Remuneration Mean and Median](chief-analysis/jpg/Chiefs Difference between upper Restricted Remuneration Mean and Median.jpg)
-![Chiefs Difference between upper Prorated Remuneration Mean and Median](chief-analysis/jpg/Chiefs Difference between upper Prorated Remuneration Mean and Median.jpg)
 ![Chiefs Difference between upper Adjusted Remuneration Mean and Median](chief-analysis/jpg/Chiefs Difference between upper Adjusted Remuneration Mean and Median.jpg)
-![Chiefs Difference between lower Restricted Expenses Mean and Median](chief-analysis/jpg/Chiefs Difference between lower Restricted Expenses Mean and Median.jpg)
-![Chiefs Difference between lower Prorated Expenses Mean and Median](chief-analysis/jpg/Chiefs Difference between lower Prorated Expenses Mean and Median.jpg)
 ![Chiefs Difference between lower Adjusted Expenses Mean and Median](chief-analysis/jpg/Chiefs Difference between lower Adjusted Expenses Mean and Median.jpg)
-![Chiefs Difference between upper Restricted Expenses Mean and Median](chief-analysis/jpg/Chiefs Difference between upper Restricted Expenses Mean and Median.jpg)
-![Chiefs Difference between upper Prorated Expenses Mean and Median](chief-analysis/jpg/Chiefs Difference between upper Prorated Expenses Mean and Median.jpg)
 ![Chiefs Difference between upper Adjusted Expenses Mean and Median](chief-analysis/jpg/Chiefs Difference between upper Adjusted Expenses Mean and Median.jpg)
+
+chief-analysis/jpg:
+
++ Chiefs Restricted Median Remuneration Deviation.jpg
++ Chiefs Restricted Mean Remuneration Deviation.jpg
++ Chiefs Prorated Median Remuneration Deviation.jpg
++ Chiefs Prorated Mean Remuneration Deviation.jpg
++ Chiefs Restricted Median Expenses Deviation.jpg
++ Chiefs Restricted Mean Expenses Deviation.jpg
++ Chiefs Prorated Median Expenses Deviation.jpg
++ Chiefs Prorated Mean Expenses Deviation.jpg
++ Chiefs Difference between lower Restricted Remuneration Mean and Median.jpg
++ Chiefs Difference between lower Prorated Remuneration Mean and Median.jpg
++ Chiefs Difference between upper Restricted Remuneration Mean and Median.jpg
++ Chiefs Difference between upper Prorated Remuneration Mean and Median.jpg
++ Chiefs Difference between lower Restricted Expenses Mean and Median.jpg
++ Chiefs Difference between lower Prorated Expenses Mean and Median.jpg
++ Chiefs Difference between upper Restricted Expenses Mean and Median.jpg
++ Chiefs Difference between upper Prorated Expenses Mean and Median.jpg
 
 ### Intuition:
 ### Dependencies:
@@ -428,30 +431,33 @@ council-analysis:
 + analyze
 + stats.log
 
-![Councils Restricted Median Remuneration Deviation](council-analysis/jpg/Councils Restricted Median Remuneration Deviation.jpg)
-![Councils Restricted Mean Remuneration Deviation](council-analysis/jpg/Councils Restricted Mean Remuneration Deviation.jpg)
-![Councils Prorated Median Remuneration Deviation](council-analysis/jpg/Councils Prorated Median Remuneration Deviation.jpg)
-![Councils Prorated Mean Remuneration Deviation](council-analysis/jpg/Councils Prorated Mean Remuneration Deviation.jpg)
 ![Councils Adjusted Median Remuneration Deviation](council-analysis/jpg/Councils Adjusted Median Remuneration Deviation.jpg)
 ![Councils Adjusted Mean Remuneration Deviation](council-analysis/jpg/Councils Adjusted Mean Remuneration Deviation.jpg)
-![Councils Restricted Median Expenses Deviation](council-analysis/jpg/Councils Restricted Median Expenses Deviation.jpg)
-![Councils Restricted Mean Expenses Deviation](council-analysis/jpg/Councils Restricted Mean Expenses Deviation.jpg)
-![Councils Prorated Median Expenses Deviation](council-analysis/jpg/Councils Prorated Median Expenses Deviation.jpg)
-![Councils Prorated Mean Expenses Deviation](council-analysis/jpg/Councils Prorated Mean Expenses Deviation.jpg)
 ![Councils Adjusted Median Expenses Deviation](council-analysis/jpg/Councils Adjusted Median Expenses Deviation.jpg)
 ![Councils Adjusted Mean Expenses Deviation](council-analysis/jpg/Councils Adjusted Mean Expenses Deviation.jpg)
-![Councils Difference between lower Restricted Remuneration Mean and Median](council-analysis/jpg/Councils Difference between lower Restricted Remuneration Mean and Median.jpg)
-![Councils Difference between lower Prorated Remuneration Mean and Median](council-analysis/jpg/Councils Difference between lower Prorated Remuneration Mean and Median.jpg)
 ![Councils Difference between lower Adjusted Remuneration Mean and Median](council-analysis/jpg/Councils Difference between lower Adjusted Remuneration Mean and Median.jpg)
-![Councils Difference between upper Restricted Remuneration Mean and Median](council-analysis/jpg/Councils Difference between upper Restricted Remuneration Mean and Median.jpg)
-![Councils Difference between upper Prorated Remuneration Mean and Median](council-analysis/jpg/Councils Difference between upper Prorated Remuneration Mean and Median.jpg)
 ![Councils Difference between upper Adjusted Remuneration Mean and Median](council-analysis/jpg/Councils Difference between upper Adjusted Remuneration Mean and Median.jpg)
-![Councils Difference between lower Restricted Expenses Mean and Median](council-analysis/jpg/Councils Difference between lower Restricted Expenses Mean and Median.jpg)
-![Councils Difference between lower Prorated Expenses Mean and Median](council-analysis/jpg/Councils Difference between lower Prorated Expenses Mean and Median.jpg)
 ![Councils Difference between lower Adjusted Expenses Mean and Median](council-analysis/jpg/Councils Difference between lower Adjusted Expenses Mean and Median.jpg)
-![Councils Difference between upper Restricted Expenses Mean and Median](council-analysis/jpg/Councils Difference between upper Restricted Expenses Mean and Median.jpg)
-![Councils Difference between upper Prorated Expenses Mean and Median](council-analysis/jpg/Councils Difference between upper Prorated Expenses Mean and Median.jpg)
 ![Councils Difference between upper Adjusted Expenses Mean and Median](council-analysis/jpg/Councils Difference between upper Adjusted Expenses Mean and Median.jpg)
+
+council-analysis/jpg:
+
++ Councils Restricted Median Remuneration Deviation.jpg
++ Councils Restricted Mean Remuneration Deviation.jpg
++ Councils Prorated Median Remuneration Deviation.jpg
++ Councils Prorated Mean Remuneration Deviation.jpg
++ Councils Restricted Median Expenses Deviation.jpg
++ Councils Restricted Mean Expenses Deviation.jpg
++ Councils Prorated Median Expenses Deviation.jpg
++ Councils Prorated Mean Expenses Deviation.jpg
++ Councils Difference between lower Restricted Remuneration Mean and Median.jpg
++ Councils Difference between lower Prorated Remuneration Mean and Median.jpg
++ Councils Difference between upper Restricted Remuneration Mean and Median.jpg
++ Councils Difference between upper Prorated Remuneration Mean and Median.jpg
++ Councils Difference between lower Restricted Expenses Mean and Median.jpg
++ Councils Difference between lower Prorated Expenses Mean and Median.jpg
++ Councils Difference between upper Restricted Expenses Mean and Median.jpg
++ Councils Difference between upper Prorated Expenses Mean and Median.jpg
 
 ### Intuition:
 ### Dependencies:
