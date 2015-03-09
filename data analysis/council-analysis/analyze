@@ -1,0 +1,10 @@
+#!/bin/bash
+
+if [ -d "jpg" ]; then rm -r "jpg"; fi
+mkdir "jpg"
+
+INPUT="source.r"
+R --no-save < "$INPUT"
+
+mv *.jpg jpg/
+
