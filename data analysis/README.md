@@ -1,8 +1,10 @@
 # Data Analysis
 
+Let's get straight to the results as that is what everyone is interested in:
+
 <table>
  <tr>
-  <td></td>
+  <td>Chiefs</td>
   <td></td>
   <td>Number of</td>
   <td>Median</td>
@@ -44,6 +46,7 @@
  <tr>
   <td>Expenses</td>
   <td>restricted</td>
+  <td>473</td>
   <td>$14,969</td>
   <td>$22,003</td>
   <td>$3,995</td>
@@ -53,6 +56,7 @@
  <tr>
   <td></td>
   <td>prorated</td>
+  <td>554</td>
   <td>$14,603</td>
   <td>$21,597</td>
   <td>$2,489</td>
@@ -62,11 +66,92 @@
  <tr>
   <td></td>
   <td>adjusted</td>
+  <td>554</td>
   <td>$14,757</td>
   <td>$21,693</td>
   <td>$3,553</td>
   <td>$3,573</td>
   <td>416</td>
+ </tr>
+</table>
+
+<table>
+ <tr>
+  <td>Council</td>
+  <td></td>
+  <td>Number of</td>
+  <td>average size</td>
+  <td>Median</td>
+  <td>Mean</td>
+  <td>zero Median</td>
+  <td>zero Mean</td>
+  <td>first zero</td>
+ </tr>
+ <tr>
+  <td>Remuneration</td>
+  <td>restricted</td>
+  <td>533</td>
+  <td>4.70</td>
+  <td>$39,500</td>
+  <td>$41,747</td>
+  <td>$38,678</td>
+  <td>$38,679</td>
+  <td>55</td>
+ </tr>
+ <tr>
+  <td></td>
+  <td>prorated</td>
+  <td>551</td>
+  <td>6.39</td>
+  <td>$39,000</td>
+  <td>$43,516</td>
+  <td>$38,000</td>
+  <td>$38,010</td>
+  <td>132</td>
+ </tr>
+ <tr>
+  <td></td>
+  <td>adjusted</td>
+  <td>551</td>
+  <td>5.58</td>
+  <td>$39,150</td>
+  <td>$42,412</td>
+  <td>$38,537</td>
+  <td>$38,543</td>
+  <td>78</td>
+ </tr>
+ <tr>
+  <td>Expenses</td>
+  <td>restricted</td>
+  <td>533</td>
+  <td>4.70</td>
+  <td>$6,062</td>
+  <td>$12,883</td>
+  <td>$0</td>
+  <td>$0</td>
+  <td>2233</td>
+ </tr>
+ <tr>
+  <td></td>
+  <td>prorated</td>
+  <td>551</td>
+  <td>6.39</td>
+  <td>$5,944</td>
+  <td>$12,960</td>
+  <td>$0</td>
+  <td>$0</td>
+  <td>2986</td>
+ </tr>
+ <tr>
+  <td></td>
+  <td>adjusted</td>
+  <td>551</td>
+  <td>5.58</td>
+  <td>$6,000</td>
+  <td>$12,935</td>
+  <td>$0</td>
+  <td>$0</td>
+  <td>2704</td>
  </tr>
 </table>
 
