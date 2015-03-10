@@ -244,13 +244,17 @@ and so its "average size" of the three interpretations is likely most accurate.
  </tr>
 </table>
 
-> As a personal note: Why take different interpretations? I'm fairly certain (completely certain) professional statisticians know
-> best practices, and I hear they often working with "dirty" data (lots of 'NA' values) simply remove the messy data instead of trying
-> to make it as accurate as possible. As a mathematician who has had extensive training with real analysis and its strategy of
-> *bottlenecking concurrency* (limits and continuity), and give the *law of large numbers* and the *central limit theorem* I can
-> see why it's likely a best practice simply to drop data---it saves a lot of effort and your results are likely the same anyway
-> (within reason of just how big/structured your data is of course). It's one thing to know this, but I wanted to try it out
-> and see it with my own eyes anyway. I'm an intuitionist after all. As expected, the various interpretations are pretty similar.
+As a personal note:
+
+> Why take different interpretations? I'm fairly certain (completely certain) professional statisticians know a trove of
+> best practices, and I hear that when working with "dirty" data (lots of 'NA' values) they simply remove the messy data instead
+> of trying to make it as accurate as possible. As a mathematician who has had training with real analysis and its strategy
+> of bottlenecking *concurrency* (limits and continuity), and given the *law of large numbers* and the *central limit theorem* I can
+> see why it's likely a best practice to simply to drop bad data---it saves a lot of effort and your results are likely the same anyway
+> (within reason of just how big/structured your data is of course).
+>
+> It's one thing to know this, but I wanted to try it out and see it with my own eyes anyway.
+> I'm an intuitionist after all. As expected, the various interpretations provide pretty similar statistics.
 
 ## Accountants:
 
@@ -270,7 +274,7 @@ The names and exact numbers aren't apparent in the graphic (small font and too b
 <table>
  <tr>
   <td>accounting firm</td>
-  <td>count</td>
+  <td>number of FN accounts</td>
  </tr>
  <tr>
   <td>MNP LLP</td>
@@ -319,16 +323,17 @@ and our **f2**=**33** ~ 30=92/3 (KPMG LLP).
 
 For the record, the above paragraph's analysis is not rigorous proof, but this is otherwise the idea. If you decide to use
 my analysis here, I recommend going over it rigorously yourself, mine comes **without warranty**. In anycase, if this
-distribution is in fact a power law version, it might imply the market for First Nations' accounts is
+distribution is in fact a power law version, it might imply the market for First Nations' accounts has for this given year
 self-organized---meaning there has been no clear outside influence or bias (putting to rest any conspiracy theories within
 this context).
 
-> My own personal recommendation---unless someone else wiser points out its flaws and suggests something
-> better---is that First Nations themselves (instead of colonial government powers) *do* interfer artificially with this
-> distribution. Resource extraction is big business for **Big Oil** as well as **Nation States** (including foreign ones),
-> and First Nations hold many such desired resources within their lands: Corporate and government hacking is in full swing,
-> and the more centralized First Nations' accounts and their private and sensitive information are, the easier it is for
-> this information to be hacked across the board.
+My own personal recommendation---unless someone else wiser points out its flaws and suggests something better:
+
+> First Nations themselves (especially instead of colonial government powers) *should* interfer artificially with this
+> distribution (within the framework of the law of course). The reason being: Resource extraction is big business for
+> **Big Oil** as well as **Nation States** (including foreign ones), and First Nations hold many such desired resources
+> within their lands. Corporate and government hacking is in full swing, and the more centralized First Nations' accounts
+> and their private and sensitive information are, the easier it is for this information to be hacked across the board.
 >
 > I recommend something closer to a uniform distribution regarding the top firms, not to mention assurances such as privileged
 > access to such things as security audit reports, background checks, and independent analyses of corporate influences, lobbying,
