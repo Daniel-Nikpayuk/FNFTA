@@ -336,7 +336,7 @@ My own personal recommendation---unless someone else wiser points out its flaws 
 > and their private and sensitive information are, the easier it is for this information to be hacked across the board.
 >
 > I recommend something closer to a uniform distribution regarding the top firms, not to mention assurances such as privileged
-> access to such things as security audit reports, background checks, and independent analyses of corporate influences, lobbying,
+> access to things such as security audit reports, background checks, and independent analyses of corporate influences, lobbying,
 > and company dependencies. Such things aren't always accessible, and when they are they're not necessarily easy to negotiate
 > as firms will try to protect themselves, but at the same time simply trusting them carelessly and blindly isn't going to work
 > either.
@@ -348,7 +348,9 @@ My own personal recommendation---unless someone else wiser points out its flaws 
 > to specialize. When such firms do specialize, they effectively lower their own costs of audit/review "production", and if the
 > cost for them goes down, it's always possible to negotiate a lower price in a competitive market. As no firm seems to have a
 > clear monopoly, nor does it seem an oligopoly exists either (the distribution would likely show that), the market seems closer
-> to being competitive.
+> to being competitive. As it is not perfectly competitive (what market is?), it means firms still have a little leeway to try
+> to raise their prices as high as possible (within that small leeway of course). Since they have room to raise their price,
+> they also have room to lower it given additional negotiating considerations.
 >
 > Given this, there is a trade-off: If the distribution is more uniform, security might be better but cost goes up, whereas if the
 > distribution is competitive, security decreases but prices improve. Intuitive economics suggests there might be an equalibrium
@@ -357,16 +359,20 @@ My own personal recommendation---unless someone else wiser points out its flaws 
 
 ## Whitecap Dakota (Matters of Design):
 
-As for First Nations' interfacing with the Canadian public. Western classical military strategist Clauswitz's might mention the
-"Paradoxical Trinity" here: The People, The Commander and his Army, and The Government. It's a three-way relationship which cannot
-be ignored in politics and war. Are First Nations at war with Canada? No. Is Canada at war with First Nations? The general Canadian
-populace, no. The Canadian Federal government, as evidenced by its repeated unilateral genocidal policies of extinguishment and
-assimilation, it seems that way. I would think First Nations, for as much as has been taken from them still have enough spiritual
-wisdom left to know how to build strong relations, and would not even need my recommendation here. Regardless, it is worth mentioning
-that our Nations may not need the Western wisdom of people like Clauswitz, but the Canadian government likely refers to their
-experiences and wisdoms. This is to say, the Canadian government would take actions to turn the general Canadian people against
-First Nations where possible. This is not unreasonable, as their initial tactic was simply to keep the Canadian populace ignorant
-to the darker history of colonial Canada, which is a big part of what made it possible for them to do what they've done over the years.
+As for First Nations interfacing with the Canadian public:
+
+Western classical military strategist Clauswitz's might mention the "Paradoxical Trinity" here: The People, The Commander and his
+Army, and The Government. It's a three-way relationship which cannot be ignored in politics and war. Are First Nations at war with
+Canada? No. Is Canada at war with First Nations? The general Canadian populace, no. The Canadian Federal government, as evidenced
+by its repeated unilateral genocidal policies of extinguishment and assimilation, it seems it views itself to be (though would
+never actually say it). I would think First Nations---for as much as has been taken from them---still have enough spiritual wisdom
+left to know how to build strong relations with Canada, and would not even need my recommendation here. Regardless, it is worth
+mentioning that our Nations may not need the Western wisdom of people like Clauswitz, but the Canadian government likely refers
+to such experiences and wisdoms. This is to say, the Canadian executive branch would take actions to turn the general Canadian
+people against First Nations where possible, mitigating its own leash as provided by the judicial branch (in this
+interpretation/assignment of the paradoxical trinity). This is not unreasonable by the way, as their initial tactic (regardless
+of political party in power at the time) was simply to keep the Canadian populace ignorant to the darker history of colonial Canada,
+which is a big part of what made it possible for them to do what they've done over the years in the first place.
 
 With this said, we as Nations do need to not only build fair and strong relations with the newcomers, but we also need to inform
 the colonial ignorance and deflect the colonial mythology of negative harmful stereotypes. As this work has been ongoing for
