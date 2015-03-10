@@ -414,34 +414,34 @@ Reading over the FNFT Act itself, one should note the two filters "consolidated"
 to cast a much wider net than is necessary:
 
 > [...] by the First Nation and by any **entity** that,
-> in accordance with generally accepted account-
-> ing principles, is required to be **consolidated**
+> in accordance with generally accepted accounting
+> principles, is required to be **consolidated**
 > with the First Nation.
 
 (emphasis is my own)
 
 + Before going on, I will here emphasize **I am not a lawyer** nor do I have any legal training, so please take the following
-+ analysis with a grain of salt.
+analysis with a grain of salt.
 
 There is a restriction given as *in accordance with generally accepted accounting principles* which sounds like a check-and-balance
 point, but it is worth looking further at the definition of *entity*:
 
 > “entity” means a corporation or a partnership, a
-> joint venture or any other unincorporated asso-
-> ciation or organization.
+> joint venture or any other unincorporated association
+> or organization.
 
 as well as that of *consolidated financial statements*:
 
 > “consolidated financial statements” means the
-> financial statements of a First Nation — pre-
-> pared in accordance with generally accepted
-> accounting principles — in which the assets, li-
-> abilities, equity, income, expenses and cash
+> financial statements of a First Nation — prepared
+> in accordance with generally accepted
+> accounting principles — in which the assets, liabilities,
+> equity, income, expenses and cash
 > flows of the First Nation and of those entities
-> that are required by those principles to be in-
-> cluded are presented as those of a single eco-
-> nomic entity, as if the First Nation were a gov-
-> ernment reporting on its financial information.
+> that are required by those principles to be included
+> are presented as those of a single economic entity,
+> as if the First Nation were a government reporting
+> on its financial information.
 
 Putting it together, especially the collection of words: *presented as those of a single economic entity*, it does appear
 to suggest an unnecessarily wide net of information gathering which in any other part of society would be considered private.
