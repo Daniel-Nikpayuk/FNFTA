@@ -5,7 +5,7 @@ This phase is broken down into four parts:
 1. Downloading.
 2. Image to text.
 3. Entry.
-4. Validation.
+4. Verification.
 
 ## Downloading:
 
@@ -223,9 +223,9 @@ resource if nothing else (though I'm hoping the statistical analysis really will
 myths), and this phase demonstrates what other varieties of technical practice it provides and potentially provides. Most importantly,
 for me at least, it is not artificial---and does not *feel* artificial in terms of my motivation to work on it.
 
-## Validation:
+## Verification:
 
-This subphase required manually validating the content of the "data\_structure.csv" file making sure it was accurate with respect to the
+This subphase required manually verifying the content of the "data\_structure.csv" file making sure it was accurate with respect to the
 pdfs.
 
 ### Intuition:
@@ -246,7 +246,7 @@ easier to do a semiotic analysis as well as translate/factorize into simpler tab
 
 b) If I lacked a proper name, I used "NA" as the given entry.
 
-c) Spaces '\ ' within single entries are replaced by an underscore '\_'.
+c) Spaces ' ' within single entries are replaced by an underscore '\_'.
 
 d) I did not (intentionally) change any spellings, though I did change all uppercase words to lowercase (except the initial letter).
 

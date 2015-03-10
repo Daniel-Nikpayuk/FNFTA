@@ -19,7 +19,7 @@ Before any structural analysis or translation can begin, we have to check our as
 Whatever scripts we write to translate the data entry text file into a well formatted csv file
 requires assuming certain characteristics about the data entry file, and so we must verify those first.
 
-In particular, I had two varieties of scripts, a "differator" (I make up words that I probably shouldn't all the time),
+In particular, I had two varieties of scripts, a "differator" (I make up words that I probably shouldn't),
 and several validators, all within the "diagnostics" folder:
 
 diagnostics/differators:
@@ -28,7 +28,7 @@ diagnostics/differators:
 
 Here I simply compared the existing pdf files with the entry designation numbers in the data entry csv file to see if
 I was missing anything. As the FNFTA pdfs are slowly released one by one over time on the government website, I would
-need a reminder of what had changed whenever I returned to the project.
+need a reminder of what had changed whenever I returned to this part of the project.
 
 diagnostics/validators:
 
@@ -61,12 +61,12 @@ Script bugs, or just plain wrong coding.
 
 #### Recommendation:
 
-A code audit. The greater number of eyes viewing the code, the more likely it is to find and patch bugs or see code that has no
+A code audit. The greater number of eyes viewing the code, the more likely it is we find and patch bugs or see code that has no
 bugs but doesn't actually do what it's intended. Or even a case where there's just a better way to write the code.
 
 ## Semiotic Analysis:
 
-This part consists of analyzing the semiotic space of the header content. It itself is actually broken into two main, parts:
+This part consists of analyzing the semiotic space of the header content. It itself is actually broken into two main parts:
 
 1. Bound header analysis.
 2. All header analysis.
@@ -75,14 +75,14 @@ Conceptually, one has a list of headers for each pdf-report-as-entry, and that l
 referred to as *bound headers*. On the other hand, each individual header regardless of which entry it belongs is the collection
 of *all headers*.
 
-Though broken into parts, the main intuition for a semitioc analysis is that the *headerspace* for the various pdf entries are not
+Though broken into parts, the main intuition for a semiotic analysis is that the *headerspace* for the various pdf entries are not
 normalized.  Different Nations use different headers, which makes unifying all Nations' data into a single well-formed csv table
 problematic. The semiotic analysis looks at the natural orders within the existing headerspace as way forward to solving this
-normalization process.
+normalization problem.
 
 ### Bound header analysis:
 
-Here I compare bound headers looking for patterns with which to orient a standardized header subspace---allowing for a end goal
+Here I compare bound headers looking for patterns with which to orient a standardized header subspace---allowing for an end goal
 in translating the remaining headers and thus normalizing them.
 
 #### Intuition:
@@ -133,9 +133,9 @@ it is the clear winner (in its natural order within the pdf reports):
 
 #### Limitations:
 
-As always, code verification (bug finding, semantic validation). More notably, the exact nature of this analysis, the distribution
-is the biggest limit here. It does not provide a universal solution regarding general contexts. It just happens the well behaved
-nature of this given context allows for this simple heuristic approach of distribution analysis to pass.
+As always, code verification (bug finding, semantic verification). More notably, given the exact nature of this analysis,
+the distribution is the biggest limit here. It does not provide a universal solution regarding general contexts.  It just
+happens the well behaved nature of this given context allows for this simple heuristic approach of distribution analysis to pass.
 
 In the broader solution, one would actually need to look at the branches of math called *partition theory* and *lattice theory*.
 Such analyses would look at every possible header subspace and the non-linearly ordered lattice of *chains* to determine
@@ -147,11 +147,11 @@ the computational power required for exact solutions is in fact impractical.  Th
 upon above is just one possible subset of the whole and existing headspace.  Once chosen, such a subset is now a constraint upon
 which to partition the remainder of the headerspace (the chosen subset's compliment); each header would be assigned one of the
 representative groups defined by the chosen subset. How many such combinations are there? A lot. The number of ways to partition
-a set grows exponentially (greater than actually) and for each given partition, the number of ways to partition the remainder into
-'k' subsets is family of numbers called the Stirling numbers of the second kind, and they grow pretty much just as rapidly as well.
-Once could simplify a little by constraining (filtering) combinations by chains as well as by known linguistic constraints of a given
+a set grows exponentially (greater than that actually) and for each given partition, the number of ways to partition the remainder
+into 'k' subsets is family of numbers called the Stirling numbers of the second kind, and they grow pretty much just as rapidly.
+One could simplify a little by constraining (filtering) combinations by chains as well as by known linguistic constraints of a given
 language, but there's no consistent approach there for general contexts and the numbers we're looking at are still ridiculously large:
-Many given constraints would still leave far too many solutions to for a human to manually look through. At the end of the
+Many given constraints would still leave far too many solutions for a human to manually look through. At the end of the
 day, heuristic solutions would still be required.
 
 #### Recommendation:
@@ -160,8 +160,7 @@ The landscape of the strategy space for analyzing semiotics spaces is outlined i
 regardless of style is generally required, I would recommend not taking this subphase lightly.
 
 Beyond that, when one looks at the actual scripts written, there is much room for optimizations---especially factorizations of
-code. This is expected as most code presented here is more prototypical in nature, and this exact recommendation will be given
-repetitiously throughout.
+code. This is expected as most code presented here is more prototypical in nature.
 
 ### All header analysis:
 
@@ -223,11 +222,33 @@ One manually looks at which percentage as input is preferred: This is necessary 
 in measure, not semantic---it will pull syntactically similar words, which as a strategy still saves a lot of time and effort,
 but does require some manual effort in choosing which percentage to go by (so as to maximize sifting words of interest but not
 sifting semantically unrelated words). If you're familar with machine learning, it's at least intuitively similar to determing
-the learning rate, to repeat: It gauges the number of words sifted returning both the words and the numbers; it does this for
+the learning rate: It gauges the number of words sifted returning both the words and the numbers; it does this for
 a range of parameters from 50%-100%. One then goes through those filters and chooses which one by percent.
+
+---------------
 
 I should give a brief explanation on the metric used, as it was hand-coded by myself, and although I do have the code open sourced
 up on GitHub, I don't yet have documentation up explaining how it works.
+
+The metric is called "longest positional match", and it takes two words, and shifts them against each other in all possible ways
+to see which positional shift provides the greatest number of positional matching. For example the words:
+
+	tuesday
+	wednesday
+
+in their current positions don't match anywhere, but if you shift the word "tuesday" 2 spots over to the right you have:
+
+	__tuesday
+	wednesday
+
+and all of a sudden you have 5 positional matches. So the longest positional match takes two words as input, and returns
+four values: number of matches; entropy; number of non-matches of the first word; number of non-matches of the second word.
+The number of matches is straightforward and is a proper metric. As it is possible one can shift in more than one way (or
+a different number of positions) and still get a longest match, the *entropy* value provides how many such matches exist.
+Intuitively the higher the entropy, the more redundant the words are (self-similar), and so that factors in. The final
+two values are provided for convenience and could otherwise be calculated from the first value and the lengths of the words.
+
+---------------
 
 Using this information we destructively "partition" the "headers.log" file keeping unrelated words within "headers.log" and moving
 related words into the "clusters" directory within their own file.  The choices made in specifying partition have been stored as
