@@ -27,9 +27,14 @@ The workload was modularized into the following parts:
 3. Data analysis phase.
 
 The source code/documentation is organized along this division as well. Within each of the appropriately named folders
-you will find another "README.md" providing the relevant details of that phase.
+you will find another "README.md" providing the relevant details of that phase. To an extent, due to the modular
+nature, each part can be read independently of the others. Thus, for example if you're interested only in the
+Chief's median salary, you can skip straight to the data analysis phase.
 
-I will also be posting conclusions and recommendations in the readmes of each phase.
+Within these modularized "README.md" files, I have also posted project recommendations and conclusions. The recommendations
+largely are "optimizations" in regards to that particular phase (how to improve efficiency, etc.), but in the data analysis
+phase you will find the first sections to provide recommendations of a more sociopolitical nature. The conclusions on
+the other hand (for now) are somewhat less formal, and simply provide a personal summary of my thoughts.
 
 ## Motivation:
 
@@ -37,7 +42,7 @@ I here give full disclosure (political and other) so there is no confusion about
 
 ### Political:
 
-I am Inuvialuit, and although the FNFTA does effect me or my people directly in any way, I am part of the indigenous
+I am Inuvialuit, and although the FNFTA does **not** effect me or my people directly in any way, I am part of the indigenous
 activist community who seek equal and fair relationships with Canadian settlers and the Canadian government.
 *I support* the [UN Declaration on the Rights of Indigenous Peoples](http://www.un.org/esa/socdev/unpfii/documents/DRIPS\_en.pdf)
 including the right to self-determination. As such, with the privileges in life I have been given, and as a form of
