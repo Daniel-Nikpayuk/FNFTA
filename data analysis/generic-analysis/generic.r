@@ -106,8 +106,8 @@ plot_deviation <- function(analysis, meas, meas_name, frame, frame_name, col)
 
 	par(mai=c(1,2,1,1))
 	possessive <- paste(analysis, "'", sep="")
-	barplot(meas_deviation[md_order], main=paste("FNFTA", possessive, frame_name, meas_name, col, "Deviation"),
-		horiz=TRUE, names.arg=frame[md_order, "Name_of_Individual"], xlab="$ : Mean-Median", las=1, cex.names=0.05)
+	barplot(meas_deviation[md_order], main=paste("FNFTA", possessive, frame_name, meas_name, col, "Deviation"), horiz=TRUE,
+		names.arg=frame[md_order, "Name_of_Individual"], xlab="$", ylab=paste("Names of", analysis), las=1, cex.names=0.05)
 
 	dev.off()
 }
@@ -127,8 +127,8 @@ plot_diff <- function(analysis, type, frame, frame_name, col, n)
 
 	par(mai=c(1,2,1,1))
 	possessive <- paste(analysis, "'", sep="")
-	barplot(diff_plot, main=paste("FNFTA", possessive, "Difference between", type, frame_name, col, "Mean and Median"),
-		horiz=TRUE, names.arg=range, xlab="$", ylab=paste("Less the bottom paid", analysis), las=1, cex.names=0.05)
+	barplot(diff_plot, main=paste("FNFTA", possessive, "Difference between", type, frame_name, col, "Mean and Median"), horiz=TRUE,
+		names.arg=range, xlab="$ : Mean-Median", ylab=paste("Less the", type, "paid", analysis), las=1, cex.names=0.05)
 
 	dev.off()
 }

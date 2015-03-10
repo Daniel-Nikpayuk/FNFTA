@@ -312,8 +312,8 @@ The names and exact numbers aren't apparent in the graphic (small font and too b
  </tr>
 </table>
 
-Testing this exact data out, our **f0**=92 (MNP LLP); while our **f1**=**55** ~ **46**=92/2 (BDO Canada LLP);
-and our **f2**=**33** ~ **30**=92/3 (KPMG LLP).
+Testing this exact data out, our **f0**=**92** (MNP LLP); while our **f1**=**55** ~ 46=92/2 (BDO Canada LLP);
+and our **f2**=**33** ~ 30=92/3 (KPMG LLP).
 
 For the record, the above paragraph's analysis is not rigorous proof, but this is otherwise the idea. If you decide to use
 my analysis here, I recommend going over it rigorously yourself, mine comes **without warranty**. In anycase, if this
@@ -390,9 +390,9 @@ http://www.cbc.ca/news/canada/saskatoon/new-homes-for-sale-on-whitecap-dakota-fi
 
 Above I mentioned I am undecided as to whether or not this is the right approach forward. From the perspective of interfacing
 with the Canadian public I believe it is a good political communicative design, but from the perspective of interfacing with
-the Canadian government it might be the opposite: A poor political communicative design. It has been mentioned by political
-academics such as [Pam Palmater](http://www.cbc.ca/player/News/Politics/ID/2623445718/) one of the Federal Governments' goals
-with the FNFTA legislation is to open up the data so that they can have access to it themselves.
+the Canadian government it might be the opposite: A poor political communicative design. It has been
+[mentioned](http://www.cbc.ca/player/News/Politics/ID/2623445718/) by political academics such as Pam Palmater one of the
+Federal Governments' goals with the FNFTA legislation is to open up the data so that they can have access to it themselves.
 
 As I've read over the Act itself---and I should note I am not lawyer nor have I had any legal training, so take this analysis
 with a grain of salt: I've noted the two filters they use "consolidated" and "entity" cast far greater a net than is necessary
@@ -424,7 +424,10 @@ and in particular that of *consolidated financial statements*:
 > ernment reporting on its financial information.
 
 Putting it together, especially *presented as those of a single economic entity* does appear to suggest an unnecessarily wide
-net of information gathering which in any other part of society would be considered private.
+net of information gathering which in any other part of society would be considered private. Though I am not a lawyer,
+the main reason I'm even willing to state such an analysis is that I've had much practice within the realm of computing
+science in coding and thinking out filters to recursively dragnet data. I don't have practice with the law, but I have
+practice with information filtering, and financial bureaucracy isn't much different than programming in terms of skill set.
 
 > For me, the bottom line is that the more I look at how much non-council financial information is required to be posted,
 > the more I think the intent is for the federal government to use this information to size up their opponent: Legal battle
@@ -598,7 +601,7 @@ I will push the documentation of it reading that file for those interested.
 #### Limitations:
 
 I have extensive experience in C++ and the modularization semantics of software design
-[SICP with scheme (variant of lisp)](http://mitpress.mit.edu/sicp/full-text/book/book.html), but R itself is pretty new
+([SICP with scheme](http://mitpress.mit.edu/sicp/full-text/book/book.html), variant of lisp), but R itself is pretty new
 to me. I'm becoming comfortable with the "vectorization paradigm" with some practice from two MOOCS, one with R the other
 with Octave. All the same, as I am still new, it's unlikely I've written elegant optimized code for this language here,
 though to be fair optimization is less an issue these days as most compilers interpreters do quite a lot under-the-hood
@@ -634,24 +637,75 @@ it in the "Chiefs" table at the beginning as it is redundant. Finally, the "zero
 include more than the first zero in the "Chiefs" table, I did calculate all zeroes generated from the mean and median differences.
 I will explain more about this in what follows.
 
-Regarding the "plot\_stats()" code, this is entirely exploratory and is split largely into generating two varieties of graphics.
+Regarding the "plot\_stats()" code, this is entirely exploratory and is split largely into generating two varieties of graphics:
+
+##### Deviation graphics:
+
 The first being "deviations" which is a word I chose to mean how much the Median (or Mean) deviate from the total Mean if you
 remove a single Chief. Not only that, but what if you calculated this for each and every Chief, sorted by amount, and graphed it.
 This is the idea of the following *deviation* graphics which come in the two varieties of "Remuneration" and "Expenses":
 
 ![Chiefs Adjusted Median Remuneration Deviation](chief-analysis/jpg/Chiefs Adjusted Median Remuneration Deviation.jpg)
+
+Intuitively, to me this says the top half of Chiefs are such that their salaries deviate from the total median, while only
+a very small number of chiefs are significantly lesser paid to effect the median at all.
+
 ![Chiefs Adjusted Median Expenses Deviation](chief-analysis/jpg/Chiefs Adjusted Median Expenses Deviation.jpg)
+
+This is similar to the previous, but is for expenses, and is bottom heavy. It means a significant number of chiefs expenses
+are strongly less than the total median.
+
 ![Chiefs Adjusted Mean Remuneration Deviation](chief-analysis/jpg/Chiefs Adjusted Mean Remuneration Deviation.jpg)
+
+The mean remuneration deviation I think is of more interest and shows the general picture of distribution. I think one
+can also get a pretty clear feel for *outliers* from a continuous plot such as this---wherever the curve's tangent shifts
+rapidly is a pretty reasonable cutoff point.
+
 ![Chiefs Adjusted Mean Expenses Deviation](chief-analysis/jpg/Chiefs Adjusted Mean Expenses Deviation.jpg)
 
+This is similarly interesting regarding expenses, especially noting the "zero" is so high up. It means the vast majority
+of Chiefs are underexpending the mean expense, while just a handful are strongly overexpending. Nothing conclusive should
+be taken from an intuitive graphic such as this, but it could be a point to follow up on, and something for Chief and Council
+to consider---then again such outliers could have purely contextual factors such as travel in regards to an isolated northern
+community (expense would then be high). Even if that's the case, that itself is something to look at.
 
+##### Difference graphics:
+
+The second variety of graphics take either the lower (or upper) *n* paid (or expended) Chiefs and calculate the difference between
+mean and median if they were removed. To read these graphics you have to start from the bottom looking upward:
 
 ![Chiefs Difference between lower Adjusted Remuneration Mean and Median](chief-analysis/jpg/Chiefs Difference between lower Adjusted Remuneration Mean and Median.jpg)
+
+Starting at the bottom, it says if you remove the lowest paid Chief, there's a diffence between mean and median salary of somewhere
+around $5,000-$10,000. As you remove more and more, slowly looking upward you this difference between mean and median actually increases.
+This is worthy of noting as we thus need not worry about removing the bottom outliers, as they don't actually decrease the difference,
+they increase it.
+
 ![Chiefs Difference between lower Adjusted Expenses Mean and Median](chief-analysis/jpg/Chiefs Difference between lower Adjusted Expenses Mean and Median.jpg)
+
+It is a similar relationship with expenses.
+
 ![Chiefs Difference between upper Adjusted Remuneration Mean and Median](chief-analysis/jpg/Chiefs Difference between upper Adjusted Remuneration Mean and Median.jpg)
+
+It's of more interest when we remove the top end. As you can see, removing the top paid (outlier) chiefs quickly diminishes the difference
+between mean and median until they are almost identical which happens after removing the **37** highest paid Chiefs---the first zero.
+As for the "stats.log" which provides the other zeroes, this above graphic demonstrates those zeroes.
+
+It also provides the possibility of an analytical approach to class brackets, though this is just speculative, and it's possible
+there's a better way or that this approach already exists in the literature. As I've stated, I'm just a beginner, and do not yet
+know the landscape of statistics.
+
 ![Chiefs Difference between upper Adjusted Expenses Mean and Median](chief-analysis/jpg/Chiefs Difference between upper Adjusted Expenses Mean and Median.jpg)
 
-chief-analysis/jpg:
+The difference of expenses mean and median are interesting in that they do not rapidly drop down to zero. Cross-referencing this
+with the median as well as mean deviation of expenses (above graphics) reminds us the majority of Chiefs' expenses are lower than
+the total median and total mean; this might explain why it does drop rapidly at first but then slows down greatly afterward.
+
+> Truthfully, I have yet to develop intuitions about all of this, but part of that is the point.
+
+Finally, it's worth noting I did produce the same graphics for the "restricted" as well as "prorated" interpretations, but
+did not link to display them here as the "adjusted" is thought to be most accurate anyway. They are in the following folder
+"chief-analysis/jpg":
 
 + Chiefs Restricted Median Remuneration Deviation.jpg
 + Chiefs Restricted Median Expenses Deviation.jpg
@@ -672,14 +726,30 @@ chief-analysis/jpg:
 + Chiefs Difference between upper Prorated Expenses Mean and Median.jpg
 
 #### Dependencies:
+
++ R (statistically oriented programming language; well suited for statistical graphics)
+
 #### Limitations:
+
+As stated before, the plotting part as well as the "zeroes" are for me exploratory. I don't even have a feel
+yet for what the limitations would be, which is the point.
+
 #### Recommendation:
+
+Code auditing, semantic verification. Further exploration of statistical concepts. With the open data set provided here,
+one can always return to it and try out new concepts. For Indigenous students wanting to improve their statistical skill set
+or even programming languages like R, what better way than with Indigenous content.
 
 ### council-analysis
 
+In this subphase, we peform the statistical and graphical analysis of the Councils' data.
+
 #### Intuition:
 
-council-analysis:
+As this is an almost identical analysis to the "chiefs-analysis" of the previous subphase, I will skip the explanations.
+The only exception is the additional code for the "average size" statistics, which is pretty straightforward.
+
+The documentation is provided in the "council-analysis":
 
 + data\_structure-restricted-council.csv
 + data\_structure-prorated-council.csv
@@ -687,6 +757,8 @@ council-analysis:
 + source.r
 + analyze
 + stats.log
+
+While the following graphics are given. Look them over, and come up with your own conclusions:
 
 ![Councils Adjusted Median Remuneration Deviation](council-analysis/jpg/Councils Adjusted Median Remuneration Deviation.jpg)
 ![Councils Adjusted Median Expenses Deviation](council-analysis/jpg/Councils Adjusted Median Expenses Deviation.jpg)
@@ -697,7 +769,7 @@ council-analysis:
 ![Councils Difference between upper Adjusted Remuneration Mean and Median](council-analysis/jpg/Councils Difference between upper Adjusted Remuneration Mean and Median.jpg)
 ![Councils Difference between upper Adjusted Expenses Mean and Median](council-analysis/jpg/Councils Difference between upper Adjusted Expenses Mean and Median.jpg)
 
-council-analysis/jpg:
+Similarly the "restricted" as well as "prorated" graphics are provided in the "council-analysis/jpg" folder:
 
 + Councils Restricted Median Remuneration Deviation.jpg
 + Councils Restricted Median Expenses Deviation.jpg
@@ -718,23 +790,52 @@ council-analysis/jpg:
 + Councils Difference between upper Prorated Expenses Mean and Median.jpg
 
 #### Dependencies:
+
++ R (statistically oriented programming language; well suited for statistical graphics)
+
 #### Limitations:
+
+Same as "chiefs-analysis".
+
 #### Recommendation:
+
+Same as "chiefs-analysis".
 
 ### accounting-analysis
 
+This subphase takes a look at the distribution of accounting firms relative to the First Nations accounts they hold
+for the 2014 year.
+
 #### Intuition:
 
-accounting-analysis:
+Within the folder "accounting-analysis":
 
-data\_structure-consolidated-15-03-06-0221.csv
-source.r
-analyze
-top\_ten\_firms.log
++ data\_structure-consolidated-15-03-06-0221.csv
++ source.r
++ analyze
++ top\_ten\_firms.log
+
+the "analyze" bash wrapper script invokes the "source.r" R script which itself reads in the "consolidated" data structure,
+returning the "top\_ten\_firms.log" file as well as a jpeg graphic; the "analyze" wrapper then cleans up the jpg image produced.
 
 #### Dependencies:
+
++ R (statistically oriented programming language; well suited for statistical graphics)
+
 #### Limitations:
+
+Data may be mildly skewed as the current available information is from **559** First Nations while there are **582** AANDC designated
+ones.
+
 #### Recommendation:
 
+Code auditing, semantic verification. Update the data as new reports are received.
+
 ## Conclusion:
+
+As a personal note, this data analysis phase has been the least tedious and most satisfying in terms of the whole project.
+At the same time, because I have been working on this project for 7 months, I greatly need a break from it, which in a way
+is unfortunate because there are actually many more explorations I'd like to perform on these data sets. The analysis here
+for this reason (of needing a break) is far less detailed than I had planned or would have liked. The upside is I can return
+to it at any time, and I will.
 
