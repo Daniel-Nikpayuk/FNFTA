@@ -361,42 +361,44 @@ My own personal recommendation---unless someone else wiser points out its flaws 
 
 As for First Nations interfacing with the Canadian public:
 
-Western classical military strategist Clauswitz's might mention the "Paradoxical Trinity" here: The People, The Commander and his
+Western classical military strategist Clauswitz might mention his "Paradoxical Trinity" here: The People, The Commander and his
 Army, and The Government. It's a three-way relationship which cannot be ignored in politics and war. Are First Nations at war with
-Canada? No. Is Canada at war with First Nations? The general Canadian populace, no. The Canadian Federal government, as evidenced
-by its repeated unilateral genocidal policies of extinguishment and assimilation, it seems it views itself to be (though would
-never actually say it). I would think First Nations---for as much as has been taken from them---still have enough spiritual wisdom
+Canada? No. Is Canada at war with First Nations? The general Canadian populace: No. The Canadian Federal government, as evidenced
+by its repeated unilateral genocidal policies of extinguishment and assimilation: Maybe (though would never actually say it).
+I would think First Nations---for as much as has been taken from them---still have enough spiritual wisdom
 left to know how to build strong relations with Canada, and would not even need my recommendation here. Regardless, it is worth
 mentioning that our Nations may not need the Western wisdom of people like Clauswitz, but the Canadian government likely refers
 to such experiences and wisdoms. This is to say, the Canadian executive branch would take actions to turn the general Canadian
-people against First Nations where possible, mitigating its own leash as provided by the judicial branch (in this
-interpretation/assignment of the paradoxical trinity). This is not unreasonable by the way, as their initial tactic (regardless
-of political party in power at the time) was simply to keep the Canadian populace ignorant to the darker history of colonial Canada,
-which is a big part of what made it possible for them to do what they've done over the years in the first place.
+people against First Nations where possible, mitigating its own leash as much as possible; the one provided by the judicial
+branch---in this interpretation/assignment of the paradoxical trinity. This is not unreasonable by the way, as their primary tactic
+over the initial decades (regardless of political party in power at the time) was simply to keep the Canadian populace ignorant
+to the darker history of colonial Canada, which is a big part of what made it possible for them to do what they've done over the
+years in the first place.
 
-With this said, we as Nations do need to not only build fair and strong relations with the newcomers, but we also need to inform
-the colonial ignorance and deflect the colonial mythology of negative harmful stereotypes. As this work has been ongoing for
-generations already and is done to great effort by the current generations of Indigenous activists and artists here, it is not
-the intention to condescend or suggest this is my idea. Given this, I would like to contribute my part:
+With this said, we as Nations *do* need to not only build fair and strong relations with the newcomers, but we also need to inform
+the colonial ignorance and deflect the colonial mythology and negative harmful stereotypes as perpetuated by the executive branch.
+As such work has been ongoing for generations already, and is done to great effort by the current generations of Indigenous activists
+and artists, it is not the intention to condescend or suggest this is my idea. Given this, I would like to contribute my part:
 
 ![Whitecap Dakota Remuneration and Expenses Report](Whitecap Dakota Remuneration and Expenses Report.jpg)
 
 This image is part of the Whitecap Dakota First Nation Remuneration and Expenses report. It is mentioned here as a worthy case study.
-I bring it up as it is of high quality visual design and aesthetic, but I am actually undecided as to whether it is the right way
+I bring it up as it is of high quality visual design and aesthetic, but I am actually **undecided** as to whether it is the right way
 to go as a political tactic.
 
 Why bring up matters of *design* ? As it turns out, in communication and politics it does matter. How we interface with data
 shapes how we understand it, and what we take away from it. Design shapes the stories being told, and shapes the outcome of
 people's understandings and interpretations---especially of data.
 
-Whitecap Dakota First Nation in particular with the presentation of its report, presents the narrative of independence
-and self-sufficiency. Their report splits the data into three territories: The leftmost being Chief and Council names
-and time of service. The middle and rightmost territories show a clear distiction between own source revenues and
-federal government funded expenses paid. By doing so, they've demonstrated in terms of image-management a clean narrative
-of being successful (not corrupt) and largely independent of the Federal government.
+Whitecap Dakota First Nation in particular with the presentation of its report, presents the themes of *independence*
+and *self-sufficiency*. Their report splits the data into three territories: The leftmost being Chief and Council names
+and time of service. The middle and rightmost territories show a clear distinction between *own source revenues* and
+*federal government* funded expenses paid. By doing so, they've demonstrated in terms of image-management a clean narrative
+of being successful (not corrupt) and largely independent of the federal government.
 
 This particular design approach as an interface to the Canadian public who have access to these reports, is a good way
 to counter colonial tropes of "the corrupt chief" and the "dependent backward First Nation which can't take care of itself".
+
 For a little more context on Whitecap Dakota itself:
 
 http://www.cbc.ca/news/canada/saskatoon/new-homes-for-sale-on-whitecap-dakota-first-nation-s-land-1.2741206
@@ -404,26 +406,31 @@ http://www.cbc.ca/news/canada/saskatoon/new-homes-for-sale-on-whitecap-dakota-fi
 Above I mentioned I am undecided as to whether or not this is the right approach forward. From the perspective of interfacing
 with the Canadian public I believe it is a good political communicative design, but from the perspective of interfacing with
 the Canadian government it might be the opposite: A poor political communicative design. It has been
-[mentioned](http://www.cbc.ca/player/News/Politics/ID/2623445718/) by political academics such as Pam Palmater one of the
-Federal Governments' goals with the FNFTA legislation is to open up the data so that they can have access to it themselves.
+[mentioned](http://www.cbc.ca/player/News/Politics/ID/2623445718/) by political academic Pam Palmater and others, that one
+of the Federal Governments' goals with the FNFTA legislation is to open up the data so that they can have access to it themselves.
+This design then provides too much detail, and does not sufficiently obscure the financial relationships within.
 
-As I've read over the Act itself---and I should note I am not lawyer nor have I had any legal training, so take this analysis
-with a grain of salt: I've noted the two filters they use "consolidated" and "entity" cast far greater a net than is necessary
-(emphasis is my own):
+Reading over the FNFT Act itself, one should note the two filters "consolidated" and "entity". It seems likely they are intended
+to cast a much wider net than is necessary:
 
 > [...] by the First Nation and by any **entity** that,
 > in accordance with generally accepted account-
 > ing principles, is required to be **consolidated**
 > with the First Nation.
 
-The restriction given as *in accordance with generally accepted accounting principles* sounds like a check-and-balance point,
-but looking further at the definition of *entity*:
+(emphasis is my own)
+
++ Before going on, I will here emphasize **I am not a lawyer** nor do I have any legal training, so please take the following
++ analysis with a grain of salt.
+
+There is a restriction given as *in accordance with generally accepted accounting principles* which sounds like a check-and-balance
+point, but it is worth looking further at the definition of *entity*:
 
 > “entity” means a corporation or a partnership, a
 > joint venture or any other unincorporated asso-
 > ciation or organization.
 
-and in particular that of *consolidated financial statements*:
+as well as that of *consolidated financial statements*:
 
 > “consolidated financial statements” means the
 > financial statements of a First Nation — pre-
@@ -436,11 +443,12 @@ and in particular that of *consolidated financial statements*:
 > nomic entity, as if the First Nation were a gov-
 > ernment reporting on its financial information.
 
-Putting it together, especially *presented as those of a single economic entity* does appear to suggest an unnecessarily wide
-net of information gathering which in any other part of society would be considered private. Though I am not a lawyer,
-the main reason I'm even willing to state such an analysis is that I've had much practice within the realm of computing
-science in coding and thinking out filters to recursively dragnet data. I don't have practice with the law, but I have
-practice with information filtering, and financial bureaucracy isn't much different than programming in terms of skill set.
+Putting it together, especially the collection of words: *presented as those of a single economic entity*, it does appear
+to suggest an unnecessarily wide net of information gathering which in any other part of society would be considered private.
+Though I am not a lawyer (as stated above), the main reason I'm even willing to state such an analysis is that I've had much
+practice within the realm of computing science in coding and thinking out filters to recursively *dragnet* data. I don't have
+practice with legalese, but I have practice with information filtering, and financial bureaucracy isn't much different than
+programming in terms of accessing formal structures (data structures) of information.
 
 > For me, the bottom line is that the more I look at how much non-council financial information is required to be posted,
 > the more I think the intent is for the federal government to use this information to size up their opponent: Legal battle
