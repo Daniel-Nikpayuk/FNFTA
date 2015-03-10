@@ -48,7 +48,7 @@ activist community who seek equal and fair relationships with Canadian settlers 
 including the right to self-determination. As such, with the privileges in life I have been given, and as a form of
 reciprocity to those of Treaty 6 territory (the terrority in which I reside and benefit---as an outsider) I aim
 to help in the education and deconstruction of harmful colonial myths, social constructs, stereotypes. If you need
-a well written rundown of such myths, the Chelsea Vowel's blogsite is an an excellent resource:
+a well written rundown of such myths, Chelsea Vowel's blogsite is an an excellent resource:
 
 http://apihtawikosisan.com
 
@@ -69,18 +69,18 @@ must assimilate in order to be taken seriously. This is part of the reason I hol
 for any given academic/technical field that is now mature, at one point it was in its infancy and at the time those specialists
 considered experts didn't know what they were doing---they couldn't have. We can very much make it up as we go instead of
 relying on the patriarchy of apprenticeship. It might take a bit longer, but if Canadian settlers won't compromise,
-we might have to take this path anyway as the alternative is no different than death.
+we might have to take this path anyway as the alternative is no different than cultural death.
 
 With that said, to push this point further: There is no such thing as objectivity; everything is subjective. In math this can be
 restated as: There is no such thing as truth, only consistency. With the exceptions of the limitations stated below, I did due
 diligence in keeping things as accurate and consistent as possible within all phases of this project. I have presented this data
 on GitHub in an open source way as part of this design. In the industry of computing, you have the best and brightest minds creating
-software---experts you might say---and even they end up with software with unforseen bugs. It's patronizing to assume only *experts*
+software---experts you might say---and even they end up with software with unforeseen bugs. It's patronizing to assume only *experts*
 can and should make these reports. Having an open project like this means we can all contribute, and develop results and constructs
 together, rather than have some "expert" telling us what to believe and how to interact with the world.
 
-Extending this way of thinking, another part of the reason for this project is we need indigenous content made by indigenous
-peoples for indigenous peoples. If you look at the statistics, *education* is an issue for indigenous peoples in Canada.
+Extending this way of thinking, another part of the reason for this project is we *need* indigenous content made *by* indigenous
+peoples *for* indigenous peoples. If you look at census statistics, **education** is an issue for indigenous peoples in Canada.
 There are many historical and political reasons for that, but one thing I do know from my own experiences going through
 school is I would have been much more motivated to do a homework assignment for example if I was working on indigenous data.
 Currently there are far more women graduating with degrees, and due to complex social factors (sexism...), there are far more
@@ -93,12 +93,14 @@ leave behind as many tools and resources as I can for the next generation to inh
 
 ## Limitations of this project:
 
-Within each phase, I will try to list the respective limitations in greater detail, but I will generalize here:
+Within each phase, I will try to list the respective limitations in greater detail (usually they are of a technical
+nature), but I will generalize here:
 
 First are the *recommendations*. Obviously you need not take them seriously, but at least take a look: I frequently
-joke that I'm a one-person indigenous think-tank, but I am legitimately pushing for the idea that we need such things
-(whether or not I'm part of that). More than one would be better. If we just do it, initially there might be a bit
-of a learning curve, but people get better, and its needed. Am I wrong? is it a colonial idea that can't be decolonized?
+joke that I'm a one-person indigenous think-tank, but I am legitimately pushing for the idea that we need such things:
+Whether or not I'm actually part of that is less important to me. More than one would be better. Furthermore, if we just
+*do* it, initially there might be a bit of a learning curve, but people do get better, and it's the sort of thing that
+is needed. Am I wrong? is it a colonial idea that can't be decolonized?
 
 The greatest limitation in the analysis is the *translation phase*, which does effect the results of the final statistical
 analysis. The end effect is the median and mean results are skewed to be a bit higher than they probably in fact are.
@@ -113,7 +115,7 @@ there are no bugs in the code. The limit in particular is that it has been up un
 
 ## Final note:
 
-All of the content here is under copyright 2015 of Daniel Nikpayuk. If you are using it for academic and non-profit purposes,
+All of the content here is under **copyright 2015 of Daniel Nikpayuk**. If you are using it for academic and non-profit purposes,
 I give permission to use the full of it for society's benefit. Those who wish to use it for-profit (frankly I don't know
 why you would, but if you exist) you do not have permission to use this at all (beyond anything permitted in fair use).
 

@@ -80,8 +80,8 @@ Let's get straight to the results as that is what everyone is interested in:
 How to read this table? Here goes:
 
 As stated in the upperleft corner, this table of statistics is in regard to First Nations' *Chiefs*. These stats are primarily
-split into "Remuneration" and "Expenses".  Using *Remuneration* as example, we now have three interpretations originally
-taken from the cleaned and consolidated data that was generated from the translation phase of this project. Each interpretation
+split into "Remuneration" and "Expenses".  Using *Remuneration* as example, we now have three interpretations taken originally
+from the cleaned and consolidated data that was generated from the translation phase of this project. Each interpretation
 varies based on the problematic natures of concepts like *time* and *comparison*.  If some chiefs did not work the full year
 (election year), how do you compare their salaries to obtain an average?  The problem---as well as need for more than one
 interpretation---arises specifically within the *Months* header from the consolidated data table.
@@ -97,32 +97,32 @@ exceptions the data is taken from 554 chiefs (instead of the 559).
 
 The "adjusted" interpretation extends the prorated strategy, and is the one I consider **most accurate**. The need to
 improve upon the prorated table comes from "double counting": Those Nations which *did* have election years---and thus had
-more than one chief on record---would have *all* chiefs remunerations and expenses of a single Nation contribute to these
+more than one chief on record---would have *all* chiefs' remunerations and expenses of a single Nation contribute to these
 statistics. The adjusted version algorithmically takes the Chief who worked the longest for that year (even if it happened
-this was an outgoing chief; the algorithm didn't discern such details), and drops any other chief of that nation---this
-way at most one chief per nation is counted.  Finally, these adjusted chiefs remuneration and expenses are prorated,
+this was an outgoing chief; the algorithm doesn't discern such details), and drops any other chief of that nation---this
+way at most one chief per nation is counted.  Finally, these adjusted chiefs' remuneration and expenses are prorated,
 and the statistics are then taken from this data.
 
 ----------------------
 
-With the interpretations outlined, I will talk briefly about the remaining columns. The "Median" and "Mean" are pretty
+With the row interpretations outlined, I will talk briefly about the columns. The "Median" and "Mean" are pretty
 straightforward, but the "zero Median" and "zero Mean" need some explaining. The idea is, if you were to remove the top
 paid chief, how would that effect the resulting median and mean? Furthermore, if you kept removing top paid chiefs in this
 manner, *how many* would you need to remove until the median and mean were effectively equal? This is signified by the
 "first zero" column in the above table. Under the adjusted remuneration for example, you'd need to remove the first **37**
 top paid chiefs in order for the median and mean to match (or nearly match). The "zero Median" and "zero Mean" then give
-this median and mean pair where the "first zero" number of chiefs removed.
+this median-and-mean pair where the "first zero" number of chiefs is removed.
 
 Finally, why would such a "first zero" analysis matter?
 
 > I will emphasize here *I am not a polished statistician*. I would consider myself a competent entry level statistician,
 > but part of this project is *personal* in that it allows me to explore and develop the necessary intuitions to take my
-> statistal education and skill set further. 
+> statistical education and skill set further. 
 
 The "first zero" analysis is intuitively relevant as I'm told the difference between *median* and *mean* can indicate or at
 least hint at wealth distribution within a population (or society). This makes sense, for if you have one-hundred people
 making $30,000 USD you will get both a mean and median of $30,000, but as soon as you add a single person, say Warren Buffett's
-earnings into the mix (as the classic economics example goes) all of a sudden the median is still at $30,000 but the mean has
+earnings into the mix (as the classic economic example goes) all of a sudden the median is still at $30,000 but the mean has
 just shot up. In society in general, if there is a large middle class economically speaking, then far less of the population
 will be bottom and top earners---meaning their salaries will have less effect on the mean. When this is the case, mean and
 median tend to be closer. If for example the middle class is small, or the top earners make greatly disproportionate quantities
@@ -135,32 +135,34 @@ to their own nations---and each nation as a **self-determining society** with it
 notably here, its financial relationship.
 
 As this is the case, I don't believe it's fair to compare chiefs' earnings with respect to each other (they do not make up any
-societies that I know of), but rather it provides an indicator of the economic health of nations themselves, and especially
+societies that I know of), but rather it provides an indicator of the economic health of *Nations* themselves, and especially
 relative to each other. In this case, my own interpretation is that there is a bit of a spread of wealth distribution across
 the First Nations:
 
 > My own opinion is that if we are going to rise, we are best to do it together,
-> and when possible (when it doesn't conflict with individual nations' sovereignty),
+> and when possible (when it doesn't conflict with individual Nations' sovereignty),
 > that the various First Nations pull and pool resources and be each others' insurances:
 > Share expertise, and help build each other up. One of First Nations' greatest
 > strengths against colonial powers is the fact that they are *not* united,
 > meaning the federal government has to deal with 500+ nations separately.
 > Regardless, providing support networks that do not compromise this strength
 > is easily possible, and it also means the federal government is less able
-> to isolate, divide, and conquer.
+> to isolate, divide, and conquer (which it loves to do).
 
 # Council:
 
-The table structure for council is almost identical and does not need its own "how to read this" explanation with two exceptions.
-First is the "average size" column: This column provides the average number of council members across nations (excluding chiefs).
+The table structure for council is almost identical and does not need its own "how to read this" explanation, but for two exceptions:
+
+First is the "average size" column. This column provides the average number of council members across nations (excluding chiefs).
 So for example the "adjusted" interpretation has about 6 (~ 5.58) councillors per nation, taken from 551 nations, which as a
-back-of-the-envelope calculation means there's about 3075 councillors on record for the year. The second note is that once again,
-the "adjusted" interpretation I view to be most accurate, but the algorithm is slightly different as it's expected there be more
-than one Councillor. The algorithm---lacking in perfect accuracy it should be noted, but is still likely the most accurate of the
-three interpretations---looks at each nation one at a time, pulls out councillors who worked the full year, and takes only half
-of the remaining councillors; of those half, it takes those who worked the longest within the year, it does not discern if they
-were outgoing councillors. It does this to remove double counting, and so its "average size" of the three interpretations
-is likely most accurate.
+back-of-the-envelope calculation means there's about 3075 councillors on record for the year.
+
+The second exception is that once again the "adjusted" interpretation I view to be most accurate, but here the algorithm is slightly
+different as it's expected there is more than one Councillor per Nation. The algorithm---lacking in perfect accuracy it should be
+noted, but is still likely the most accurate of the three interpretations---looks at each nation one at a time --> pulls out
+councillors who worked the full year, and takes only half of the remaining councillors --> of those half, it takes those who worked
+the longest within the year, it does not discern if they were outgoing councillors. It does all of this to remove double counting,
+and so its "average size" of the three interpretations is likely most accurate.
 
 <table>
  <tr>
