@@ -423,14 +423,14 @@ to cast a much wider net than is necessary:
 + Before going on, I will here emphasize **I am not a lawyer** nor do I have any legal training, so please take the following
 analysis with a grain of salt.
 
-There is a restriction given as *in accordance with generally accepted accounting principles* which sounds like a check-and-balance
-point, but it is worth looking further at the definition of *entity*:
+There is a restriction given as "in accordance with generally accepted accounting principles" which sounds like a check-and-balance
+point, but being critical, it is worth looking further at the definition of "entity":
 
 > “entity” means a corporation or a partnership, a
 > joint venture or any other unincorporated association
 > or organization.
 
-as well as that of *consolidated financial statements*:
+as well as that of "consolidated financial statements":
 
 > “consolidated financial statements” means the
 > financial statements of a First Nation — prepared
@@ -443,24 +443,29 @@ as well as that of *consolidated financial statements*:
 > as if the First Nation were a government reporting
 > on its financial information.
 
-Putting it together, especially the collection of words: *presented as those of a single economic entity*, it does appear
+Putting it together, especially the collection of words: **presented as those of a single economic entity**, it does appear
 to suggest an unnecessarily wide net of information gathering which in any other part of society would be considered private.
-Though I am not a lawyer (as stated above), the main reason I'm even willing to state such an analysis is that I've had much
-practice within the realm of computing science in coding and thinking out filters to recursively *dragnet* data. I don't have
-practice with legalese, but I have practice with information filtering, and financial bureaucracy isn't much different than
-programming in terms of accessing formal structures (data structures) of information.
+Though I am not a lawyer (as stated above), the main reason I'm even willing to state such an analysis at all is that I've had
+much practice within the realm of computing science in coding and thinking out filters to recursively *dragnet* data. I don't
+have practice with legalese, but I have practice with information filtering, and financial bureaucracy isn't much different
+than programming in terms of accessing formal structures (data structures) of information.
 
-> For me, the bottom line is that the more I look at how much non-council financial information is required to be posted,
-> the more I think the intent is for the federal government to use this information to size up their opponent: Legal battle
-> with a First Nation? Legal and political strategy is determined by knowing how much infrastructure and resources they have;
+My opinion:
+
+> For me, the bottom line is that the more I look at how much non-council financial information is required to be
+> posted---and this also comes from seeing these reports with my own eyes---the more I think the intent is for the
+> federal government to use this information to size up their opponent: Legal battle with a First Nation?
+> Legal and political strategy is determined by knowing how much infrastructure and resources they have;
 > what connections (networks, social support) they have to obtain additional funding for their legal proceedings, etc.
 
 Even if my own naive analysis is overblown, what it keeps coming back to for me is that like the NSA "it's just metadata" argument,
 you can determine a surprising amount with even this "meta" financial information. It is disproportionate given there are alternate
-inexpensive means (which don't require giving up such private information to the whole world) of otherwise carrying out the supposed
+non-costly means (which don't require giving up such private information to the whole world) of otherwise carrying out the supposed
 intent of this legislation: that of *democratic transparency*.
 
 ## Explorations:
+
+That's generally it for my sociopolitical "think-tank" analysis.
 
 The remainder of this document is intended for my own transparency of the analysis given above. As with the *data entry* and
 *translation* phases, I will go over the *how* of it all, and in particular how it was done, methods used and all that. As well,
@@ -505,7 +510,7 @@ Within the "r-chief\_xor\_council" folder we have:
 
 The idea is that we need to manually verify the "Position\_Title" column entries when scooping up either "Chief" or "Council".
 Generally I started by sifting out (with a regular expression) any title-entry containing the string "Chief" or the string
-"Chef" (French; both upper and lower case), as well as "Council" or "Conseil". This sifting by regex is coded in the script
+"Chef" (French; both upper and lower case for both), as well as "Council" or "Conseil". This sifting by regex is coded in the script
 "skim\_chief\_xor\_council.r" and saved *exclusively* ("xor") and respectively as "chiefs\_grep.log" as well as "council\_grep.log".
 
 As each sifter (filter) ends up letting too many strings through (course filter) one needs to manually go through these lists
@@ -513,16 +518,16 @@ and pull out all the *exceptions* which passed but shouldn't have. This work is 
 and "council\_except.log". Using the "[..]grep.log" and "[...]except.log" files, one can automate the proper lists of chief
 and council, but for additional thoroughness we need to look at what we left out. This is coded in the script "skim\_remainder.log"
 where we unite the lists of proper chief and council (chief minus the exceptions; council minus the exceptions) and subtract it
-from the while column of entries, this ends up being saved as "remainder.log". By going through this list of remainders, we can
-pick up anything that was accidentally completely missed by our filters altogether, for example "Spokesperson" is another name
+from the whole column of entries, this ends up being saved as "remainder.log". By going through this list of remainders, we can
+pick up anything that was accidentally completely missed by our filters altogether. For example "Spokesperson" is another name
 for "Chief" within the context of the Nation which uses the term. These additions were respectively saved as "chiefs\_let.log"
 and "council\_let.log".
 
 Finally, with these lists, within the "partition\_chief\_and\_council.r" R script we took the "grep.log" list, subtracted the
 "exceptions.log" list from it, then added the "let.log" list to it to end up with a sifter of all the row entries desired,
-which is used to partition the consolidated table respectively into its chief and council components.
+which is then used to partition the consolidated table respectively into its chief and council components.
 
-> personal note on the choice of the words "sifter" and "filter": People in general in this time and place tend to use prefer
+> Personal note: The choice of the words "sifter" and "filter". People in general in this time and place tend to prefer
 > the word "filter", but for me, "sifting through a pile" is connotative of the intent to *keep* something, while "filtering
 > out unwanted noise" is connotative of the intent to *remove* something. For me, when the semantic intention is to keep something,
 > I prefer to use the word "sifter" rather than "filter".
@@ -543,12 +548,12 @@ meanings. As well, there were many entries which were altogether left out for th
 as Chief or Council and rather as part of a different paid entity altogether (but still required to be reported).
 
 This is why I chose these particular methods, as these documented human readable lists provide transparency regarding the choices
-made. Anyone with the basic know-how can rerun this simple scripts with any modifications they see fit.
+made. Anyone with the basic know-how can rerun these simple scripts with any modifications they see fit.
 
 #### Recommendation:
 
-Independent auditing of the code for semantic bugs, verifying it does what it intends. Auditing of the "grep, except, let" lists
-to verify the title-entries were classified properly.
+Independent auditing of the code for semantic bugs, verifying that it does what it intends. Auditing of the "grep, except, let" lists
+to verify the title-entries were classified and categorized properly.
 
 ### r-restrict\_prorate\_adjust
 
@@ -560,9 +565,9 @@ three interpretations: *restrict*, *prorate*, *adjust*.
 As explained at the top of this document in regards to the "Chiefs" table of statistics, three interpretations are taken with
 the chief and council data. All three interpretations vary on a single axis: Time. In order to compare a chief's remuneration
 and expenses with respect to another chief's remuneration and expenses, they need to have served their nation for the same
-duration of time. In particular, as we privilege annual accounts, but our units of time recorded as "Number of Months" we are
-interested in looking at chiefs who have served for 12 months. However we implement it, the specification is to normalize the
-data to this time period.
+duration of time. In particular, as we privilege annual accounts (but as our units of time are recorded as "Number of Months")
+we are interested in looking at chiefs who have served for 12 months. However we implement it, the specification is to normalize the
+data to this duration of time.
 
 In our folder "r-restrict\_prorate\_adjust", we have the following files:
 
@@ -578,7 +583,7 @@ datum and scales the remuneration and expenses quantities of each row to match w
 Finally, the "adjust.r" script removes "double counts" and then prorates. For example if a councillor worked 9 months, it's likely
 within the same nation another councillor worked 3 months (they compliment each other). As such, the script goes through each
 nation, sifts out the 12-monthers, sorts the remaining councillors, and takes the half that worked the longest. If this remaining
-group didn't divide equally, it took half-plus-one. As mentioned, the half who were kept were then prorated. Similarily for chiefs,
+group doesn't divide equally, it takes half-plus-one. As mentioned, the half who were kept were then prorated. Similarily for chiefs,
 The list of chiefs for each nation was sorted, and only the longest serving one was taken.
 
 #### Dependencies:
@@ -588,7 +593,7 @@ The list of chiefs for each nation was sorted, and only the longest serving one 
 #### Limitations:
 
 The "restrict" interpretation drastically cuts the number of accessible chief and council. For this reason it is not as accurate
-as it could be.  The "prorate" interpretation, especially its implementation double counts, which factors into the average council
+as it could be.  The "prorate" interpretation, especially its implementation, double counts, which factors into the average council
 size as well as skewing the top paid chiefs. The implementation of "adjust" does not discern accuracy of incoming and outgoing
 chief and council. As such, it is not as accurate as it could be, but is still the most accurate of these three algorithmic
 approaches.
@@ -597,7 +602,7 @@ approaches.
 
 As usual, code audit and verifications. Aside from that, for better accuracy, more meta-details need to be supplied at the data
 entry phase to improve the *adjust-algorithm*, in particular in regards to attributes and properties such as *incoming* and
-*outgoing*, etc.
+*outgoing*, or other tangible effects.
 
 ### generic-analysis
 
@@ -606,14 +611,14 @@ council analyses.
 
 #### Intuition:
 
-The "chiefs-analysis" and "council-analysis" which follow will both be heavily dependent upon R code.
+The "chief-analysis" and "council-analysis" which follow will both be heavily dependent upon R code.
 To mitigate the complexity of such code, especially redundant code, I have factored out the tools
 common to both. In the following folder "generic-analysis" is the file:
 
 + generic.r
 
-Which provides statistical tools as well as plotting functions. As each tool and function has its own commented explanation,
-I will push the documentation of it reading that file for those interested.
+which provides statistical tools as well as plotting functions. As each tool and function has its own commented explanation,
+I will push the reader toward that documentation for those interested.
 
 #### Dependencies:
 
@@ -625,12 +630,12 @@ I have extensive experience in C++ and the modularization semantics of software 
 ([SICP with scheme](http://mitpress.mit.edu/sicp/full-text/book/book.html), variant of lisp), but R itself is pretty new
 to me. I'm becoming comfortable with the "vectorization paradigm" with some practice from two MOOCS, one with R the other
 with Octave. All the same, as I am still new, it's unlikely I've written elegant optimized code for this language here,
-though to be fair optimization is less an issue these days as most compilers interpreters do quite a lot under-the-hood
+though to be fair optimization is less an issue these days as most compilers/interpreters do quite a lot under-the-hood
 regardless of the programmer's code itself.
 
 #### Recommendation:
 
-Code review, audit, verification. Improved code/library design for later use down the road.
+Code review, audit, verification. Improved code/library design for maintainence and lifecycle ecology considerations.
 
 ### chief-analysis
 
@@ -647,14 +652,14 @@ We start with the following files in the folder "chief-analysis":
 + analyze
 + stats.log
 
-The "write\_stats()" method within the "source.r" script generates our statistical output for the "Chiefs" table at the beginning
+The "write\_stats()" method within the "source.r" script generates our statistical output used for the "Chiefs" table at the beginning
 of this document, and saves it in the "stats.log" file. As the "source.r" script also generates graphics as jpegs, this script
-is provided a wrapper "analyze" bash script which runs the R code along with cleaning up the jpegs.
+is provided a wrapper bash script "analyze" which runs the R code along with cleaning up the jpegs.
 
 As we've already discussed the statistical output provided by "write\_stats()" we will focus here on the "plot\_stats()" method.
-I will mention a few exceptions if you decide to look at the "stats.log" contents anyway: First I used the word "tail" to
-mean "zero Median" as well as "zero Mean". I also coded for the difference of this mean and median pair, but did not include
-it in the "Chiefs" table at the beginning as it is redundant. Finally, the "zeroes:" often show more than one; though I did not
+I will mention a few exceptions if you decide to look at the "stats.log" contents anyway: First, I used the word "tail" to
+mean "zero Median" as well as "zero Mean". I also coded for the "difference" of this mean and median pair, but did not include
+it in the "Chiefs" table at the beginning as it is redundant. Finally, the "zeroes" often show more than one; though I did not
 include more than the first zero in the "Chiefs" table, I did calculate all zeroes generated from the mean and median differences.
 I will explain more about this in what follows.
 
@@ -662,9 +667,9 @@ Regarding the "plot\_stats()" code, this is entirely exploratory and is split la
 
 ##### Deviation graphics:
 
-The first being "deviations" which is a word I chose to mean how much the Median (or Mean) deviate from the total Mean if you
-remove a single Chief. Not only that, but what if you calculated this for each and every Chief, sorted by amount, and graphed it.
-This is the idea of the following *deviation* graphics which come in the two varieties of "Remuneration" and "Expenses":
+The first being "deviations" which is a word I chose to mean how much the Median (or Mean) deviate from the total Median (or Mean)
+if you remove a single Chief. Not only that, but what if you calculated this for each and every Chief, sorted by amount, and graphed it?
+This is the idea of the following *deviation* graphics which come in the two varieties: "Remuneration" and "Expenses".
 
 ![Chiefs Adjusted Median Remuneration Deviation](chief-analysis/jpg/Chiefs Adjusted Median Remuneration Deviation.jpg)
 
@@ -712,9 +717,9 @@ It's of more interest when we remove the top end. As you can see, removing the t
 between mean and median until they are almost identical which happens after removing the **37** highest paid Chiefs---the first zero.
 As for the "stats.log" which provides the other zeroes, this above graphic demonstrates those zeroes.
 
-It also provides the possibility of an analytical approach to class brackets, though this is just speculative, and it's possible
-there's a better way or that this approach already exists in the literature. As I've stated, I'm just a beginner, and do not yet
-know the landscape of statistics.
+It also provides the possibility of an analytical approach to class brackets, though this is just speculative---it's possible
+there's a better way already or that this approach already exists in the literature. As I've stated, I'm just a beginner, and do not yet
+know the full landscape of statistics.
 
 ![Chiefs Difference between upper Adjusted Expenses Mean and Median](chief-analysis/jpg/Chiefs Difference between upper Adjusted Expenses Mean and Median.jpg)
 
@@ -736,7 +741,6 @@ did not link to display them here as the "adjusted" is thought to be most accura
 + Chiefs Prorated Median Expenses Deviation.jpg
 + Chiefs Prorated Mean Remuneration Deviation.jpg
 + Chiefs Prorated Mean Expenses Deviation.jpg
-
 + Chiefs Difference between lower Restricted Remuneration Mean and Median.jpg
 + Chiefs Difference between lower Restricted Expenses Mean and Median.jpg
 + Chiefs Difference between lower Prorated Remuneration Mean and Median.jpg
@@ -752,14 +756,14 @@ did not link to display them here as the "adjusted" is thought to be most accura
 
 #### Limitations:
 
-As stated before, the plotting part as well as the "zeroes" are for me exploratory. I don't even have a feel
-yet for what the limitations would be, which is the point.
+As stated before, the plotting part as well as the "zeroes" are for my own exploration. I don't even have a feel
+yet for what the limitations would be.
 
 #### Recommendation:
 
 Code auditing, semantic verification. Further exploration of statistical concepts. With the open data set provided here,
-one can always return to it and try out new concepts. For Indigenous students wanting to improve their statistical skill set
-or even programming languages like R, what better way than with Indigenous content.
+one can always return to it and try out new concepts at any time down the road. For Indigenous students wanting to improve
+their statistical skill set or even getting better at programming languages like R, what better way than with Indigenous content?
 
 ### council-analysis
 
@@ -767,7 +771,7 @@ In this subphase, we peform the statistical and graphical analysis of the Counci
 
 #### Intuition:
 
-As this is an almost identical analysis to the "chiefs-analysis" of the previous subphase, I will skip the explanations.
+As this is an almost identical analysis to the "chief-analysis" of the previous subphase, I will skip the explanations.
 The only exception is the additional code for the "average size" statistics, which is pretty straightforward.
 
 The documentation is provided in the "council-analysis":
@@ -779,7 +783,7 @@ The documentation is provided in the "council-analysis":
 + analyze
 + stats.log
 
-While the following graphics are given. Look them over, and come up with your own conclusions:
+The following graphics are given. Look them over, and come up with your own conclusions:
 
 ![Councils Adjusted Median Remuneration Deviation](council-analysis/jpg/Councils Adjusted Median Remuneration Deviation.jpg)
 ![Councils Adjusted Median Expenses Deviation](council-analysis/jpg/Councils Adjusted Median Expenses Deviation.jpg)
@@ -800,7 +804,6 @@ Similarly the "restricted" as well as "prorated" graphics are provided in the "c
 + Councils Prorated Median Expenses Deviation.jpg
 + Councils Prorated Mean Remuneration Deviation.jpg
 + Councils Prorated Mean Expenses Deviation.jpg
-
 + Councils Difference between lower Restricted Remuneration Mean and Median.jpg
 + Councils Difference between lower Restricted Expenses Mean and Median.jpg
 + Councils Difference between lower Prorated Remuneration Mean and Median.jpg
@@ -816,11 +819,11 @@ Similarly the "restricted" as well as "prorated" graphics are provided in the "c
 
 #### Limitations:
 
-Same as "chiefs-analysis".
+Same as "chief-analysis".
 
 #### Recommendation:
 
-Same as "chiefs-analysis".
+Same as "chief-analysis".
 
 ### accounting-analysis
 
