@@ -13,7 +13,7 @@ federal government of Canada's online website.
 This independent analysis of the FNFTA is broken into three parts:
 
 1. It takes the schedule of remuneration and expenses reports posted online and unifies them into several relevant
-comma seperated value (csv) open dataset files.
+comma separated value (csv) open dataset files.
 2. It performs a semiotic analysis on the wordspace given by the filtered csv files.
 3. It performs a statistical analysis on the financial and other relevant data oriented around median and mean
 earnings of Chief and Council amongst the given Nations.

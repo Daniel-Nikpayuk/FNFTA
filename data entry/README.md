@@ -214,7 +214,7 @@ My recommendation for this particular phase is to use more elaborate machine lea
 fact---that there is structured data, it would be easy to come up with a training set. This was impossible the first time around
 as I didn't know what to expect overall, and so I didn't know what patterns to match against and thus what style of machine learning
 algorithms to apply. With a polished dataset, I now have access to Chief and Council first and last names: Though such things do
-change over the years, similar names tend to stay within communities, and so first and last names seperate of each other make
+change over the years, similar names tend to stay within communities, and so first and last names separate of each other make
 for a good way to recognize lines of interest. A basic logistic regression training model should suffice. There's 582 reports,
 and a good 5-10 lines within the reports of interest, making about 2500-5000 training examples. That's still pretty small data,
 but it shouldn't be hard to tweak features to get pretty good accuracy given the context. It is something I plan on trying out

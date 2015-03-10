@@ -490,7 +490,7 @@ We begin with where we left off on the translation phase:
 ### r-chief\_xor\_council
 
 At the end of the translation phase, we cleaned and returned a consolidated csv table of our pdf reports.
-Here we will prepare and partition this further into seperate chief and council csv tables.
+Here we will prepare and partition this further into separate chief and council csv tables.
 
 #### Intuition:
 
@@ -606,7 +606,7 @@ entry phase to improve the *adjust-algorithm*, in particular in regards to attri
 
 ### generic-analysis
 
-Strictly speaking this is not a seperate subphase, but it otherwise provides a small code library for the final chief and
+Strictly speaking this is not a separate subphase, but it otherwise provides a small code library for the final chief and
 council analyses.
 
 #### Intuition:
